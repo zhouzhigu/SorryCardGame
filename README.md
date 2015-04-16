@@ -1,1 +1,3 @@
-# SorryCardGame
+# Sorry Card Game
+
+## Contributors
