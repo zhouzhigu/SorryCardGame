@@ -1,4 +1,7 @@
 # Sorry Card Game
+Hello world!
 
 ## Contributors
-Alex Sederquest
+Matt Sanders (mattstud1)
+Jordan Modzelewski (jordanmodz)
+Alex Sederquest (Biggkahuna98)
