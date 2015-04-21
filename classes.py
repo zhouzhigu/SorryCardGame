@@ -1,25 +1,6 @@
 import random
 
-# ALEX
-class Hand(list):
-	
-	def printHand(self):
-		pass
-		
-	def add(self, card):
-		self.append(card)
-		
-	def discard(self, card):
-		Cards().cardDiscard(self.pop(card))
-		
-class Cards(object):
-
-	def __init__(self, card_count=41, sorry_count=12, card_discard_deck=[], sorry_discard_deck=[]):
-		#self.card_count = 41
-		#self.sorry_count = 12
-		#self.card_deck = card_deck
-		#self.sorry_deck = sorry_deck
-		self.card_deck = ['1', '1', '1', '1', '2: Go again', '2: Go again', '2: Go again', '2: Go again', '3: Take a card from an opponents hand',
+card_deck = ['1', '1', '1', '1', '2: Go again', '2: Go again', '2: Go again', '2: Go again', '3: Take a card from an opponents hand',
 						  '3: Take a card from an opponents hand', '3: Take a card from an opponents hand', '4: You must discard a card to play this one',
 						  '4: You must discard a card to play this one', '4: You must discard a card to play this one', '5', '5', '5', '7: Remove and discard the top card from an opponents deck',
 						  '7: Remove and discard the top card from an opponents deck', '7: Remove and discard the top card from an opponents deck', '8', '8', '8', '10 or -1', '10 or -1', '10 or -1',
@@ -27,36 +8,60 @@ class Cards(object):
 						  '12', '12', '12', 'Safe', 'Safe', 'Safe', 'Sorry: Play this card to the discard pile, then draw a sorry card and play it', 'Sorry: Play this card to the discard pile, then draw a sorry card and play it',
 						  'Sorry: Play this card to the discard pile, then draw a sorry card and play it', 'Sorry: Play this card to the discard pile, and then draw a sorry card and play it',
 						  'Sorry: Play this card to the discard pile, then draw a sorry card and play it']
-		self.sorry_deck = ['Take a card of another player\'s set and discard it', 'Everyone but you must remove the last card from one of their sets', 'Take another player\'s set that is less than 9, and put the cards in your hand',
+sorry_deck = ['Take a card of another player\'s set and discard it', 'Everyone but you must remove the last card from one of their sets', 'Take another player\'s set that is less than 9, and put the cards in your hand',
 							   'Everyone gives you a card from their hand', 'Go home! Any one set of yours is now complete', 'Discard all 12\'s from all sets but yours', 'Look at another player\'s hand, if you are able, take one of those cards and play it',
 							   'Look at another player\'s hand, if you are able, take one of those cards and play it', 'Draw 2 cards, if you are able play 1 of them and discard the other. Otherwise discard both', 'Draw 2 cards, if you are able play 1 of them and discard the other. Otherwise discard both',
 							   'If you are able, take the last card from another player\'s set and add it to one of yours', 'If you are able, take the last card from another player\'s set and add it to one of yours']
-		self.sorry_discard_deck = []
-		self.card_discard_deck = []
-		shuffle(self.card_deck) # subject to change
-		shuffle(self.sorry_deck) # subject to change
+# ALEX
+class Hand(list):
+	
+	def playCard(self, cardIndex):
+		Set().add(cardIndex)
+		
+	def add(self, card):
+		self.append(card)
+		
+	def discard(self, cardIndex):
+		DiscardDecks().cardDiscard(self.pop(cardIndex))
+		
+	def getCardIndex(self, card):
+		return self.index(card)
+		
+class Set(list):
+	
+	def add(self, card):
+		pass
+	def isComplete(self):
+		pass
+		
+class Cards(object):
+
+	def __init__(self, card_discard_deck=None, sorry_discard_deck=None):
+		self.sorry_discard_deck = sorry_discard_deck
+		self.card_discard_deck = card_discard_deck
+		CardDeck().reshuffle()
+		SorryDeck().reshuffle()
+		
+class DiscardDecks(Cards):
 		
 	def cardDiscard(self, card):
-		_card_discard_deck.append(card)
+		self.card_discard_deck.append(card)
 
 	def sorryDiscard(self, card):
-		_sorry_discard_deck.append(card)
+		self.sorry_discard_deck.append(card)
 		
-# JORDAN		
 class CardDeck(Cards):
 	
 	def reshuffle(self): # shuffles the card deck
-		shuffle(self.card_deck)
+		random.shuffle(card_deck)
 		
 	def draw(self): # draws a card
-		self.card_deck.pop(random.randint(0, len(self.card_deck)-1)
-		#return c # returns the chosen card for the game logic to add to the players hand
-		
+		return card_deck.pop(random.randrange(len(card_deck)))
+
 class SorryDeck(Cards):
 	
 	def reshuffle(self): # shuffles the sorry deck
-		shuffle(self.sorry_deck)
+		random.shuffle(sorry_deck)
 		
 	def draw(self):
-		self.sorry_deck.pop(random.randint(0, len(self.sorry_deck)-1)
-		#return c # returns the chosen card for the game logic to add to the players hand
+		return sorry_deck.pop(random.randrange(len(sorry_deck)))
