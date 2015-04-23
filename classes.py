@@ -56,6 +56,7 @@ class Cards(object):
 		CardDeck().reshuffle()
 		SorryDeck().reshuffle()
 		
+# JORDAN
 class DiscardDecks(Cards):
 		
 	def cardDiscard(self, card):
