@@ -1,18 +1,37 @@
 from classes import *
 
+def printIntroduction():
+    # print an introduction
+    pass
+
+def printInstructions():
+    # print instructions
+    pass
+
+def getNumberOfPlayers():
+    pass
+
+def getPlayerAge():
+    pass
+
+def gameOver():
+    pass
+
+def playSorryCard(card):
+    pass
+
+def playPlayingCard(card):
+    pass
+
 players = Players()
 
 playingDeck = PlayingDeck()
 sorryDeck = SorryDeck()
-playingDiscardPile = Pile()
-sorryDiscardPile = Pile()
 
 printIntroduction()
 if raw_input("Do you want instructions? ").lower() == "y":
     printInstructions()
-numPlayers = 0
-while not numPlayers:
-    numPlayers = getPlayerNumber()
+numPlayers = getNumberOfPlayers()
 for i in range(numPlayers - 1):
     players.addPlayer(CompPlayer())
 name = raw_input("What is your name? ")
@@ -25,15 +44,15 @@ while not gameOver(players):
     player.hand.addCard(playingCard)
     cardToPlay = player.getCardToPlay()
     if cardToPlay.getValue() == 0: # sorry value
-        playingDiscardPile.add(cardToPlay)
+        playingDeck.discard(cardToPlay)
         cardToPlay = sorryDeck.draw()
         playSorryCard(cardToPlay)
-        sorryDiscardPile.add(cardToPlay)
+        sorryDeck.discard(cardToPlay)
         goAgain = False
     else:
         discard = raw_input("Would you like to discard this card? ")
         if discard:
-            playingDiscardPile.add(cardToPlay)
+            playingDeck.discard(cardToPlay)
         else:
             goAgain = playPlayingCard(cardToPlay)
     if not goAgain:
