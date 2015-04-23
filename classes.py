@@ -15,8 +15,8 @@ sorry_deck = ['Take a card of another player\'s set and discard it', 'Everyone b
 # ALEX
 class Hand(list):
 	
-	def playCard(self, cardIndex):
-		Set().add(cardIndex)
+	def playCard(self, card):
+		Set().add(self.pop(self.index(card)))
 		
 	def add(self, card):
 		self.append(card)
@@ -24,15 +24,29 @@ class Hand(list):
 	def discard(self, cardIndex):
 		DiscardDecks().cardDiscard(self.pop(cardIndex))
 		
-	def getCardIndex(self, card):
+	def getCardIndex(self, card): # redundant, but may come in handy later.
 		return self.index(card)
 		
 class Set(list):
 	
 	def add(self, card):
-		pass
+		self = map(int, self)
+		total = 0
+		for i in self:
+			total += self.pop()
+		
 	def isComplete(self):
-		pass
+		self = map(int, self)
+		total = 0
+		for i in self:
+			total += self.pop()
+		if total > 15:
+			return 'Over 15, not possible.'
+		if total == 15:
+			return True
+		
+	def getCardIndex(self, card):
+		return self.index(card)
 		
 class Cards(object):
 
