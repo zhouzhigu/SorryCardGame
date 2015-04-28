@@ -1,60 +1,60 @@
-from classes import *
+import random
+# Class template for the sorry game
 
-def printIntroduction():
-    # print an introduction
-    pass
+class Card(object):
 
-def printInstructions():
-    # print instructions
-    pass
+	def __init__(self):
+		pass
 
-def getNumberOfPlayers():
-    pass
+class Set(list, Hand):
 
-def getPlayerAge():
-    pass
+	def __init__(self):
 
-def gameOver():
-    pass
+	def add(self, card):
+		pass
 
-def playSorryCard(card):
-    pass
+	def isComplete(self):
+		pass
 
-def playPlayingCard(card):
-    pass
+	def getCardKey(self, card):
+		pass
 
-players = Players()
+	def removeCardFromSet(self, card):
+		pass
 
-playingDeck = PlayingDeck()
-sorryDeck = SorryDeck()
+class Hand(list, Player):
 
-printIntroduction()
-if raw_input("Do you want instructions? ").lower() == "y":
-    printInstructions()
-numPlayers = getNumberOfPlayers()
-for i in range(numPlayers - 1):
-    players.addPlayer(CompPlayer())
-name = raw_input("What is your name? ")
-age = getPlayerAge()
-players.addPlayer(Player(name,age))
-players.orderForPlay()
-player = players.next()
-while not gameOver(players):
-    playingCard = playingDeck.draw()
-    player.hand.addCard(playingCard)
-    cardToPlay = player.getCardToPlay()
-    if cardToPlay.getValue() == 0: # sorry value
-        playingDeck.discard(cardToPlay)
-        cardToPlay = sorryDeck.draw()
-        playSorryCard(cardToPlay)
-        sorryDeck.discard(cardToPlay)
-        goAgain = False
-    else:
-        discard = raw_input("Would you like to discard this card? ")
-        if discard:
-            playingDeck.discard(cardToPlay)
-        else:
-            goAgain = playPlayingCard(cardToPlay)
-    if not goAgain:
-        player = players.next()
+	def add(self, card):
+		pass
+
+	def discard(self, cardIndex):
+		pass
+
+	def getCardIndex(self, card):
+		pass
+
+	def playCard(self):
+		pass
+
+class Player(object):
+
+	def __init__(self):
+		pass
+
+	def addPlayer(self, name, age):
+		pass
+
+	def orderToPlay(self):
+		pass
+
+class Deck(object):
+
+	def __init__(self):
+		pass
+
+	def playingCardDraw(self):
+		pass
+
+	def sorryCardDraw(self):
+		pass
 
