@@ -58,3 +58,15 @@ class Deck(object):
 	def sorryCardDraw(self):
 		pass
 
+class PlayingDeck(Deck):
+	def __init__(self):
+		pass
+	
+class SorryDeck(Deck):
+	def __init__(self):
+		pass
+
+class SorryGame(object):
+	def __init__(self):
+		pass
+	
