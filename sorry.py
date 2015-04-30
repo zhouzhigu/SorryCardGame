@@ -2,8 +2,7 @@ from classes import *
 
 # Brendan
 def printIntroduction():
-    # print an introduction
-    pass
+    print "Welcome to the Sorry Card Game"
 
 # Brendan
 def printInstructions():
