@@ -52,8 +52,8 @@ class Deck(object):
 class Set(object):
 
     def __init__(self):
-        pass
-
+        self._set = []
+		self._addCardToSet = []
     def addCardToSet(self, card):
         # if set is complete, set it complete
         pass
@@ -79,8 +79,7 @@ class Set(object):
 class Hand(object):
 
     def __init__(self):
-        pass
-
+        self._hand = []
     def addCardToHand(self, card):
         pass
 
@@ -93,8 +92,8 @@ class Hand(object):
 class Player(object):
 
     def __init__(self, name, age):
-        pass
-
+        self._player[]
+		self._choosePlay[]
     def getName(self):
         pass
 
