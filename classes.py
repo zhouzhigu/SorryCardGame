@@ -9,16 +9,16 @@ class Card(object):
         self.setInstructions(instructions)
 
     def getValue(self):
-        return self.value
+        return self._value
 
     def setValue(self, value):
-        self.value = value
+        self._value = value
 
     def getInstructions(self):
-        return self.instructions
+        return self._instructions
 
     def setInstructions(self, instructions):
-        self.instructions = instructions
+        self._instructions = instructions
 
 class Deck(object):
 
