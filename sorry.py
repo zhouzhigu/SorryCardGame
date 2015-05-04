@@ -2,35 +2,35 @@ from classes import *
 
 # Brendan
 def printIntroduction():
-    # print an introduction
-    pass
+	# print an introduction
+	pass
 
 # Brendan
 def printInstructions():
-    # print instructions
-    pass
+	# print instructions
+	pass
 
 # Brendan
 def getNumberOfPlayers():
-    pass
+	pass
 
 # Brendan
 def getPlayerAge():
-    pass
+	pass
 
 sorryGame = SorryGame()
 
 printIntroduction()
 if raw_input("Do you want instructions? ").lower()[0] == "y":
-    printInstructions()
+	printInstructions()
 numPlayers = getNumberOfPlayers()
 for i in range(numPlayers - 1):
-    sorryGame.addPlayer(CompPlayer())
+	sorryGame.addPlayer(CompPlayer())
 name = raw_input("What is your name? ")
 age = getPlayerAge()
 sorryGame.addPlayer(Player(name,age))
 sorryGame.orderForPlay()
 sorryGame.nextPlayer()
 while not sorryGame.gameOver():
-    sorryGame.move()
+	sorryGame.move()
 sorryGame.printResults()
