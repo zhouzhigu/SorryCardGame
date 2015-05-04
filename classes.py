@@ -52,8 +52,8 @@ class Deck(object):
 class Set(object):
 
     def __init__(self):
-        pass
-
+        self._complete = False
+		
     def addCardToSet(self, card):
         # if set is complete, set it complete
         pass
@@ -79,7 +79,7 @@ class Set(object):
 class Hand(object):
 
     def __init__(self):
-        pass
+         self._hand = []
 
     def addCardToHand(self, card):
         pass
@@ -93,19 +93,19 @@ class Hand(object):
 class Player(object):
 
     def __init__(self, name, age):
-        pass
-
+        self.setName(name)
+        self.setAge(age)
     def getName(self):
-        pass
+    	return self._value
 
-    def setName(self):
-        pass
+    def setName(self, value):
+        self._value = value
 
     def getAge(self):
-        pass
+        return self._value
 
     def setAge(self):
-        pass
+		self._value = value
 
     def choosePlay(self):
         # return the card the player wants to play
@@ -135,21 +135,26 @@ class SorryGame(object):
     def orderForPlay(self):
         pass
 
-    def removeTwelves(self):
+    def deal(self):
+		pass
+	
+	def removeTwelves(self):
         pass
 
     def playPlayingCard(self, card):
         # play the card
-        # if it's a two, return True
-        # if not, return False
-        pass
+        if self.card = 2:
+			return True
+		else:
+			return False
 
     def playSorryCard(self):
         pass
 
     def nextPlayer(self):
         # return the next player
-        pass
+        return players.pop()
+		pass
 
     def printResults(self):
         pass
