@@ -1,3 +1,4 @@
+
 import random
 
 computerPlayerNames = ["Bob","Mary"]
@@ -52,7 +53,7 @@ class Deck(object):
 class Set(object):
 
     def __init__(self):
-        
+        pass
 
     def addCardToSet(self, card):
         # if set is complete, set it complete
@@ -94,18 +95,20 @@ class Player(object):
 
     def __init__(self, name, age):
         self.chooseplay=choosep=Play()
-
+        self.setAge(age)
+        self.setName(name)
     def getName(self):
-        pass
+        return self._name
 
     def setName(self):
         pass
 
     def getAge(self):
-        pass
+        return self._name
 
     def setAge(self):
-        pass
+		pass
+        
 
     def choosePlay(self):
         # return the card the player wants to play
