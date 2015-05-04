@@ -52,7 +52,9 @@ class Deck(object):
 class Set(object):
 
 	def __init__(self):
-		pass
+		# Wes
+		self._set = []
+		self._complete = False
 
 	def addCardToSet(self, card):
 		# if set is complete, set it complete
@@ -78,8 +80,11 @@ class Set(object):
 
 class Hand(object):
 
+<<<<<<< HEAD
 	def __init__(self):
-		pass
+		# Wes
+		self._hand = []
+		self.hand(hand)
 
 	def addCardToHand(self, card):
 		pass
