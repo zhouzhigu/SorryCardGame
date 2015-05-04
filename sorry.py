@@ -30,6 +30,7 @@ name = raw_input("What is your name? ")
 age = getPlayerAge()
 sorryGame.addPlayer(Player(name,age))
 sorryGame.orderForPlay()
+sorryGane.deal()
 sorryGame.nextPlayer()
 while not sorryGame.gameOver():
     sorryGame.move()
