@@ -80,7 +80,7 @@ class Set(object):
 
 class Hand(object):
 
-	def __init__(self):
+	def __init__(self, hand):
 		# Wes
 		self._hand = []
 		self.hand(hand)
