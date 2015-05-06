@@ -13,6 +13,7 @@ class Card(object):
 
 	def setValue(self, value):
 		self._value = value
+		return value
 
 	def getInstructions(self):
 		return self._instructions
