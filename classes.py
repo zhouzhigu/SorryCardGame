@@ -126,7 +126,7 @@ def CompPlayer(Player):
 	def __init__(self):
 		random.shuffle(computerPlayerNames)
 		self.setName(computerPlayerNames.pop())
-		self.setAge(random.randint(18,99))
+		self.setAge(random.randint(18,112))
 
 	def choosePlay(self):
 		# return the card the computer wants to play
