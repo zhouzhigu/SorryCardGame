@@ -135,6 +135,7 @@ class SorryGame(object):
 		self.playingDeck = Deck()
 		self.sorryDeck = Deck("sorry cards")
 		self._players = []
+		self._winner = ''
 
 	def addPlayer(self, player):
 		pass
@@ -162,26 +163,18 @@ class SorryGame(object):
 
 	def gameOver(self):
 		for this_player in self._players:
-			if len(self._players) = 2:
-				set1 = this_player.setOne.isComplete()
-				set2 = this_player.setTwo.isComplete()
-				set3 = this_player.setThree.isComplete()
-				set4 = this_player.setFour.isComplete()
-				if set1 and set2 and set3 and set4 == True:
-					self._winner = this_player
-			if len(self._players == 3:
-				set1 = this_player.setOne.isComplete()
-				set2 = this_player.setTwo.isComplete()
-				set3 = this_player.setThree.isComplete()
-				if set1 and set2 and set3 == True:
-					self._winner = this_player
-			if len(self._players == 4:
-				set1 = this_player.setOne.isComplete()
-				set2 = this_player.setTwo.isComplete()
-				if set1 and set2 == True:
-					self._winner = this_player
-		if self._winner == True:
-			self.printResults()
+			if self._winner == True:
+				self.printResults()
+			num = 0
+			for this_set in this_player.Sets().getSets():
+				if Sets().isComplete(this_set) == True:
+					num += 1
+			if len(self._players) == 2 and num == 4:
+				self._winner = this_player
+			if len(self._players) == 3 and num == 3:
+				self._winner = this_player
+			if len(self._players) == 4 and num == 2:
+				self._winner = this_player
 
 	def move(self):
 		pass
