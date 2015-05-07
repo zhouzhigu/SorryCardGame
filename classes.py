@@ -162,7 +162,26 @@ class SorryGame(object):
 
 	def gameOver(self):
 		for this_player in self._players:
-			
+			if len(self._players) = 2:
+				set1 = this_player.setOne.isComplete()
+				set2 = this_player.setTwo.isComplete()
+				set3 = this_player.setThree.isComplete()
+				set4 = this_player.setFour.isComplete()
+				if set1 and set2 and set3 and set4 == True:
+					self._winner = this_player
+			if len(self._players == 3:
+				set1 = this_player.setOne.isComplete()
+				set2 = this_player.setTwo.isComplete()
+				set3 = this_player.setThree.isComplete()
+				if set1 and set2 and set3 == True:
+					self._winner = this_player
+			if len(self._players == 4:
+				set1 = this_player.setOne.isComplete()
+				set2 = this_player.setTwo.isComplete()
+				if set1 and set2 == True:
+					self._winner = this_player
+		if self._winner == True:
+			self.printResults()
 
 	def move(self):
 		pass
