@@ -88,8 +88,13 @@ class Hand(object):
 		self.hand(hand)
 =======
     def __init__(self):
+<<<<<<< HEAD
          self._hand = []
 >>>>>>> ae9a8910264d3d16fbf22b0cb8e10e5cf183dc14
+=======
+		self.addCardToHand(card)
+        pass
+>>>>>>> db6798d10d69191006a03da21f1be606c54c62d3
 
 	def addCardToHand(self, card):
 		pass
@@ -104,6 +109,7 @@ class Player(object):
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	def __init__(self, name, age):
 		pass
 
@@ -115,6 +121,12 @@ class Player(object):
 
 	def getAge(self):
 		pass
+=======
+    def __init__(self, name, age):
+		self.setName = name
+		self.setAge = age
+        pass
+>>>>>>> db6798d10d69191006a03da21f1be606c54c62d3
 
 	def setAge(self):
 		pass
