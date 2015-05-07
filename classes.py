@@ -134,6 +134,7 @@ class SorryGame(object):
 		self.currentPlayer = None
 		self.playingDeck = Deck()
 		self.sorryDeck = Deck("sorry cards")
+		self._players = []
 
 	def addPlayer(self, player):
 		pass
@@ -160,7 +161,8 @@ class SorryGame(object):
 		pass
 
 	def gameOver(self):
-		pass
+		for this_player in self._players:
+			
 
 	def move(self):
 		pass
