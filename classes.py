@@ -103,14 +103,14 @@ class Player(object):
 	def getName(self):
 		return self._name
 
-	def setName(self, value):
-		self._value = value
+	def setName(self, name):
+		self._name = name
 
 	def getAge(self):
-		return self._value
+		return self._age
 
-	def setAge(self):
-		return self._name
+	def setAge(age):
+		return self._age
 
 	def choosePlay(self):
 		# return the card the player wants to play
