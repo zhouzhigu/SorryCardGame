@@ -158,9 +158,7 @@ class SorryGame(object):
 		# return the next player
 
 	def printResults(self):
-	print Congratulations! You Won!
-		self.winner 
-		pass
+		print "Congratulations, %s ! You Won!" % self.winner.getName()
 
 	def gameOver(self):
 		pass
