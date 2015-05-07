@@ -167,7 +167,7 @@ class SorryGame(object):
 			if self.winner:
 				return True
 			num = 0
-			for this_set in this_player.Sets().getSets():
+			for this_set in this_player.getSets():
 				if this_set.isComplete(this_set) == True:
 					num += 1
 			if len(self._players) == 2 and num == 4:
