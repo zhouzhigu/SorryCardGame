@@ -101,6 +101,7 @@ class Player(object):
 		self.setAge(age)
 
 	def getName(self):
+		print self.winner
 		return self._name
 
 	def setName(self, value):
@@ -157,6 +158,8 @@ class SorryGame(object):
 		# return the next player
 
 	def printResults(self):
+	print Congratulations! You Won!
+		self.winner 
 		pass
 
 	def gameOver(self):
