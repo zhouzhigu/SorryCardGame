@@ -1,3 +1,4 @@
+
 import random
 
 computerPlayerNames = ["Bob","Mary"]
@@ -80,21 +81,9 @@ class Set(object):
 
 class Hand(object):
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 	def __init__(self):
 		# Wes
 		self._hand = []
-		self.hand(hand)
-=======
-    def __init__(self):
-<<<<<<< HEAD
-         self._hand = []
->>>>>>> ae9a8910264d3d16fbf22b0cb8e10e5cf183dc14
-=======
-		self.addCardToHand(card)
-        pass
->>>>>>> db6798d10d69191006a03da21f1be606c54c62d3
 
 	def addCardToHand(self, card):
 		pass
@@ -107,49 +96,21 @@ class Hand(object):
 
 class Player(object):
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	def __init__(self, name, age):
-		pass
+		self.setName(name)
+		self.setAge(age)
 
 	def getName(self):
-		pass
+		return self._name
 
-	def setName(self):
-		pass
+	def setName(self, value):
+		self._value = value
 
 	def getAge(self):
-		pass
-=======
-    def __init__(self, name, age):
-		self.setName = name
-		self.setAge = age
-        pass
->>>>>>> db6798d10d69191006a03da21f1be606c54c62d3
+		return self._value
 
 	def setAge(self):
-		pass
-=======
-    def __init__(self, name, age):
-        self.setName(name)
-        self.setAge(age)
-=======
-    def __init__(self, name, age):
-       self.setAge(Age)
->>>>>>> bb5f9cba243c90c6d2a4e9f8dae52d70a4ac5236
-    def getName(self):
-    	return self._value
-
-    def setName(self, value):
-        self._value = value
-
-    def getAge(self):
-        return self._value
-
-    def setAge(self):
-		self._value = value
->>>>>>> ae9a8910264d3d16fbf22b0cb8e10e5cf183dc14
+		return self._name
 
 	def choosePlay(self):
 		# return the card the player wants to play
@@ -168,7 +129,7 @@ def CompPlayer(Player):
 		pass
 
 class SorryGame(object):
-<<<<<<< HEAD
+
 	def __init__(self):
 		self.currentPlayer = None
 		self.playingDeck = Deck()
@@ -179,20 +140,7 @@ class SorryGame(object):
 
 	def orderForPlay(self):
 		pass
-=======
-    def __init__(self):
-        self.currentPlayer = None
-        self.playingDeck = Deck()
-        self.sorryDeck = Deck("sorry cards")
-    def addPlayer(self, player):
-        pass
 
-    def orderForPlay(self):
-        pass
-		self.dealHand == 5
->>>>>>> bb5f9cba243c90c6d2a4e9f8dae52d70a4ac5236
-
-<<<<<<< HEAD
 	def removeTwelves(self):
 		pass
 
@@ -201,33 +149,12 @@ class SorryGame(object):
 		# if it's a two, return True
 		# if not, return False
 		pass
-=======
-    def deal(self):
-		pass
-
-	def removeTwelves(self):
-        pass
-
-    def playPlayingCard(self, card):
-        # play the card
-        if self.card = 2:
-			return True
-		else:
-			return False
->>>>>>> ae9a8910264d3d16fbf22b0cb8e10e5cf183dc14
 
 	def playSorryCard(self):
 		pass
 
-<<<<<<< HEAD
 	def nextPlayer(self):
 		# return the next player
-=======
-    def nextPlayer(self):
-        # return the next player
-        return players.pop()
->>>>>>> ae9a8910264d3d16fbf22b0cb8e10e5cf183dc14
-		pass
 
 	def printResults(self):
 		pass
