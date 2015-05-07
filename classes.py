@@ -1,72 +1,166 @@
+
 import random
-# Class template for the sorry game
+
+computerPlayerNames = ["Bob","Mary"]
 
 class Card(object):
 
-	def __init__(self):
+	def __init__(self,value,instructions):
+		self.setValue(value)
+		self.setInstructions(instructions)
+
+	def getValue(self):
+		return self._value
+
+	def setValue(self, value):
+		self._value = value
+
+	def getInstructions(self):
+		return self._instructions
+
+	def setInstructions(self, instructions):
+		self._instructions = instructions
+
+class Deck(object):
+
+	def __init__(self,sorry=False):
+		self._deck = []
+		self._discard = []
+		if sorry:
+			self.addSorryCards()
+		else:
+			self.addPlayingCards()
+		self.shuffle()
+
+	def draw(self):
+		return self._deck.pop()
+
+	def shuffle(self):
 		pass
 
-class Set(list, Hand):
+	def discard(self,card):
+		self._discard.append(card)
+
+	def isEmpty(self):
+		return len(self._deck) == 0
+
+	def addPlayingCards(self):
+		pass
+
+	def addSorryCards(self):
+		pass
+
+class Set(object):
 
 	def __init__(self):
+		# Wes
+		self._set = []
+		self._complete = False
 
-	def add(self, card):
+	def addCardToSet(self, card):
+		# if set is complete, set it complete
+		pass
+
+	def removeCardFromSet(self,index=False):
 		pass
 
 	def isComplete(self):
 		pass
 
-	def getCardKey(self, card):
+	def isSafe(self):
 		pass
 
-	def removeCardFromSet(self, card):
+	def isEmpty(self):
 		pass
 
-class Hand(list, Player):
-
-	def add(self, card):
+	def testCard(self,card):
 		pass
 
-	def discard(self, cardIndex):
+	def count(self):
 		pass
 
-	def getCardIndex(self, card):
+class Hand(object):
+
+	def __init__(self):
+		# Wes
+		self._hand = []
+
+	def addCardToHand(self, card):
 		pass
 
-	def playCard(self):
+	def removeCardFromHand(self, index):
+		pass
+
+	def count(self):
 		pass
 
 class Player(object):
 
+	def __init__(self, name, age):
+		self.setName(name)
+		self.setAge(age)
+
+	def getName(self):
+		return self._name
+
+	def setName(self, value):
+		self._value = value
+
+	def getAge(self):
+		return self._value
+
+	def setAge(self):
+		return self._name
+
+	def choosePlay(self):
+		# return the card the player wants to play
+		# must be legal to play
+		pass
+
+def CompPlayer(Player):
+
 	def __init__(self):
-		pass
+		random.shuffle(computerPlayerNames)
+		self.setName(computerPlayerNames.pop())
+		self.setAge(random.randint(18,99))
 
-	def addPlayer(self, name, age):
-		pass
-
-	def orderToPlay(self):
-		pass
-
-class Deck(object):
-
-	def __init__(self):
-		pass
-
-	def playingCardDraw(self):
-		pass
-
-	def sorryCardDraw(self):
-		pass
-
-class PlayingDeck(Deck):
-	def __init__(self):
-		pass
-	
-class SorryDeck(Deck):
-	def __init__(self):
+	def choosePlay(self):
+		# return the card the computer wants to play
 		pass
 
 class SorryGame(object):
+
 	def __init__(self):
+		self.currentPlayer = None
+		self.playingDeck = Deck()
+		self.sorryDeck = Deck("sorry cards")
+
+	def addPlayer(self, player):
 		pass
-	
+
+	def orderForPlay(self):
+		pass
+
+	def removeTwelves(self):
+		pass
+
+	def playPlayingCard(self, card):
+		# play the card
+		# if it's a two, return True
+		# if not, return False
+		pass
+
+	def playSorryCard(self):
+		pass
+
+	def nextPlayer(self):
+		# return the next player
+
+	def printResults(self):
+		pass
+
+	def gameOver(self):
+		pass
+
+	def move(self):
+		pass
