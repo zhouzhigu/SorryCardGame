@@ -162,12 +162,13 @@ class SorryGame(object):
 		pass
 
 	def gameOver(self):
+		self.winner = False
 		for this_player in self._players:
-			if self._winner == True:
-				self.printResults()
+			if self.winner:
+				return True
 			num = 0
 			for this_set in this_player.Sets().getSets():
-				if Sets().isComplete(this_set) == True:
+				if this_set.isComplete(this_set) == True:
 					num += 1
 			if len(self._players) == 2 and num == 4:
 				self._winner = this_player
@@ -175,6 +176,7 @@ class SorryGame(object):
 				self._winner = this_player
 			if len(self._players) == 4 and num == 2:
 				self._winner = this_player
+		return False
 
 	def move(self):
 		pass
