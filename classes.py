@@ -103,6 +103,7 @@ class Hand(object):
 class Player(object):
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	def __init__(self, name, age):
 		pass
 
@@ -121,6 +122,10 @@ class Player(object):
     def __init__(self, name, age):
         self.setName(name)
         self.setAge(age)
+=======
+    def __init__(self, name, age):
+       self.setAge(Age)
+>>>>>>> bb5f9cba243c90c6d2a4e9f8dae52d70a4ac5236
     def getName(self):
     	return self._value
 
@@ -151,6 +156,7 @@ def CompPlayer(Player):
 		pass
 
 class SorryGame(object):
+<<<<<<< HEAD
 	def __init__(self):
 		self.currentPlayer = None
 		self.playingDeck = Deck()
@@ -161,6 +167,18 @@ class SorryGame(object):
 
 	def orderForPlay(self):
 		pass
+=======
+    def __init__(self):
+        self.currentPlayer = None
+        self.playingDeck = Deck()
+        self.sorryDeck = Deck("sorry cards")
+    def addPlayer(self, player):
+        pass
+
+    def orderForPlay(self):
+        pass
+		self.dealHand == 5
+>>>>>>> bb5f9cba243c90c6d2a4e9f8dae52d70a4ac5236
 
 <<<<<<< HEAD
 	def removeTwelves(self):
