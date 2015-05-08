@@ -147,7 +147,15 @@ class SorryGame(object):
 		pass
 
 	def removeTwelves(self, exempt):
-		pass
+		for this_player in self._players:
+			if this_player != exempt:
+				twelvecount = 0
+				for this_set in this_player.getSets():
+					if 12 in this_set:
+						this_set.remove(12)
+						twelvecount += 1
+				for len(twelvecount):
+					Decks().discard(12)
 
 	def playPlayingCard(self, card):
 		# play the card
