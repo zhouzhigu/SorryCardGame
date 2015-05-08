@@ -112,8 +112,8 @@ class Player(object):
 	def getAge(self):
 		return self._age
 
-	def setAge(age):
-		return self._age
+	def setAge(self, age):
+		self._age = age
 
 	def choosePlay(self):
 		# return the card the player wants to play
