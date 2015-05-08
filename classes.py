@@ -54,7 +54,7 @@ class Set(object):
 
 	def __init__(self):
 		# Wes
-		self._set = [0]
+		self._set = []
 		self._complete = False
 
 	def addCardToSet(self, card):
@@ -68,7 +68,10 @@ class Set(object):
 		return self._complete
 
 	def isSafe(self):
-		pass
+		for thiscard in self._set:
+			if thiscard.getValue()==0:
+				return True
+		return False 
 
 	def isEmpty(self):
 		pass
