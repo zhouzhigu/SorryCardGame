@@ -74,7 +74,10 @@ class Set(object):
 		pass
 
 	def testCard(self,card):
-		pass
+		if sum(self._set) + card < 16:
+			return True
+		else:
+			return False
 
 	def count(self):
 		pass
@@ -134,6 +137,8 @@ class SorryGame(object):
 		self.currentPlayer = None
 		self.playingDeck = Deck()
 		self.sorryDeck = Deck("sorry cards")
+		self._players = []
+		self._winner = ''
 
 	def addPlayer(self, player):
 		pass
@@ -141,8 +146,16 @@ class SorryGame(object):
 	def orderForPlay(self):
 		pass
 
-	def removeTwelves(self):
-		pass
+	def removeTwelves(self, exempt):
+		for this_player in self._players:
+			if this_player != exempt:
+				twelvecount = 0
+				for this_set in this_player.getSets():
+					if 12 in this_set:
+						this_set.remove(12)
+						twelvecount += 1
+				for len(twelvecount):
+					Decks().discard(12)
 
 	def playPlayingCard(self, card):
 		# play the card
@@ -160,7 +173,21 @@ class SorryGame(object):
 		pass
 
 	def gameOver(self):
-		pass
+		self.winner = False
+		for this_player in self._players:
+			if self.winner:
+				return True
+			num = 0
+			for this_set in this_player.getSets():
+				if this_set.isComplete() == True:
+					num += 1
+			if len(self._players) == 2 and num == 4:
+				self._winner = this_player
+			if len(self._players) == 3 and num == 3:
+				self._winner = this_player
+			if len(self._players) == 4 and num == 2:
+				self._winner = this_player
+		return False
 
 	def move(self):
 		pass
