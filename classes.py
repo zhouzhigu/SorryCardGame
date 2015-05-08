@@ -74,11 +74,14 @@ class Set(object):
 		pass
 
 	def testCard(self,card):
-		pass
+		if sum(self._set) + card < 16:
+			return True
+		else:
+			return False
 
 	def count(self):
 		pass
-
+		
 class Hand(object):
 
 	def __init__(self):
@@ -143,7 +146,7 @@ class SorryGame(object):
 	def orderForPlay(self):
 		pass
 
-	def removeTwelves(self):
+	def removeTwelves(self, exempt):
 		pass
 
 	def playPlayingCard(self, card):
