@@ -73,14 +73,19 @@ class Set(object):
 	def isEmpty(self):
 		pass
 
-	def testCard(self,card):
-		if sum(self._set) + card < 16:
+	def testCard(self, card):
+		if self.getValue + card < 16:
 			return True
-		else:
-			return False
+		return False
 
 	def count(self):
 		pass
+		
+	def getValue(self):
+		intset = []
+		for this_card in self._set:
+			intset.append(this_card.getValue())
+		return sum(intset)
 
 class Hand(object):
 
