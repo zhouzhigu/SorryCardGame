@@ -81,7 +81,7 @@ class Set(object):
 
 	def count(self):
 		pass
-		
+
 class Hand(object):
 
 	def __init__(self):
