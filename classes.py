@@ -80,7 +80,7 @@ class Set(object):
 
 	def count(self):
 		pass
-		
+
 	def getValue(self):
 		intset = []
 		for this_card in self._set:
