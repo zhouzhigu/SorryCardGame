@@ -74,7 +74,7 @@ class Set(object):
 		pass
 
 	def testCard(self, card):
-		if self.getValue + card < 16:
+		if self.getValue() + card < 16:
 			return True
 		return False
 
