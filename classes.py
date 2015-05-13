@@ -57,6 +57,8 @@ class Set(object):
 		# Wes
 		self._set = []
 		self._complete = False
+		get_set 
+		return get_set
 	
 	def numberOfSets(self):
 			
@@ -77,20 +79,25 @@ class Set(object):
 	def isEmpty(self):
 		pass
 
-	def testCard(self,card):
-		if sum(self._set) + card < 16:
+	def testCard(self, card):
+		if self.getValue() + card < 16:
 			return True
-		else:
-			return False
+		return False
 
 	def count(self):
 		pass
+
+	def getValue(self):
+		intset = []
+		for this_card in self._set:
+			intset.append(this_card.getValue())
+		return sum(intset)
 
 class Hand(object):
 
 	def __init__(self):
 		# Wes
-		self._hand = []
+		self._player.hand = []
 
 	def addCardToHand(self, card):
 		pass
