@@ -121,9 +121,9 @@ class Player(object):
 		return self._name
 
 	def choosePlay(self):
+		
 		# return the card the player wants to play
 		# must be legal to play
-		pass
 
 def CompPlayer(Player):
 
