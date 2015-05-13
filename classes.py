@@ -57,7 +57,7 @@ class Set(object):
 		# Wes
 		self._set = []
 		self._complete = False
-		get_set 
+		players.get_set
 		return get_set
 	
 	def numberOfSets(self):
