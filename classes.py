@@ -157,7 +157,10 @@ class SorryGame(object):
 		
 
 	def orderForPlay(self):
+		
 		while True:
+			
+			
 
 	def removeTwelves(self, exempt):
 		for this_player in self._players:
