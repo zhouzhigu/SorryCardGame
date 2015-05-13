@@ -137,10 +137,15 @@ def CompPlayer(Player):
 	def __init__(self):
 		random.shuffle(computerPlayerNames)
 		self.setName(computerPlayerNames.pop())
-		self.setAge(random.randint(18,112))
+		self.setAge(random.randint(18,102))
 
 	def choosePlay(self):
+		for this_set in self.currentPlayer.getSets()
+			if this_set.getValue
+			this_setissafe
 		# return the card the computer wants to play
+		self.currentPlayer.hand
+		return card
 		pass
 
 class SorryGame(object):
