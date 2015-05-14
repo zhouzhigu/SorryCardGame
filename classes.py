@@ -74,7 +74,7 @@ class Set(object):
 		return False 
 
 	def isEmpty(self):
-		pass
+		return len(self._set)==0
 
 	def testCard(self, card):
 		if self.getValue() + card < 16:
