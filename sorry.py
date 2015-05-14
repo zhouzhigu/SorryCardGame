@@ -30,8 +30,15 @@ it must be 15. """
 
 # Brendan
 def getNumberOfPlayers():
-    print 
-	"How many players?"
+    number, noNumber = 0, True
+	while noNumber:
+		number = raw_input("How many players are there? ")
+		try:
+			number = int(number)
+			noNumber = False
+		except:
+			noNumber = True
+	return number
 	
 
 # Brendan
