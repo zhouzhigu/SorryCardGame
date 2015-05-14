@@ -1,4 +1,3 @@
-
 import random
 
 computerPlayerNames = ["Bob","Mary"]
@@ -45,7 +44,11 @@ class Deck(object):
 		return len(self._deck) == 0
 
 	def addPlayingCards(self):
-		pass
+		for i in range(0,4):
+			self._deck.append(Card(1, "the instructions"))
+			self._deck.append(Card().getValue(2), Card().getInstructions(2))
+		for i in range(0,3):
+			self._deck.append(Card().getValue
 
 	def addSorryCards(self):
 		pass
