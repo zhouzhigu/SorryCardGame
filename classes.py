@@ -97,14 +97,17 @@ class Hand(object):
 		self._hand = []
 
 	def addCardToHand(self, card):
-		pass
+		for this_card in self._set
+			intset.append(this_card.addCardToself._hand())
+		return sum(intset)
 
 	def removeCardFromHand(self, index):
-		pass
+		for this_card in self._set:
+			intset.append(this_card.removeCardFromself._hand())
+	
 
 	def count(self):
-		pass
-
+		return cards
 class Player(object):
 
 	def __init__(self, name, age):
