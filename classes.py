@@ -1,7 +1,9 @@
 
 import random
 
-computerPlayerNames = ["Bob","Mary"]
+computerPlayerNames = ["Bob","David","Steven","Luke","Chris","Molly",
+"Lily","Rebecca","Clementine","Lee","John","Tom","Kenny","Alvin","Rick","Daryl","Marcus","Karen","Maya","Ed",
+"Sharkie","Diane","Andy","Leon","Mary"]
 
 class Card(object):
 
