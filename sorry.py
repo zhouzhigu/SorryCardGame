@@ -32,11 +32,21 @@ it must be 15. """
 def getNumberOfPlayers():
     print 
 	"How many players?"
+	
 
 # Brendan
 def getPlayerAge():
-    print 
-	"How old is the player"
+	age, noAge = 0, True
+	while noAge:
+		age = raw_input("How are old are you? ")
+		try:
+			age = int(age)
+			noAge = False
+		except:
+			noAge = True
+	return age
+	
+		
 
 sorryGame = SorryGame()
 
