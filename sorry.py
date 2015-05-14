@@ -38,6 +38,8 @@ def getNumberOfPlayers():
 			noNumber = False
 		except:
 			noNumber = True
+		if not in [2,3,4]:
+			no
 	return number
 	
 
