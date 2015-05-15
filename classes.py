@@ -1,4 +1,3 @@
-
 import random
 
 computerPlayerNames = ["Bob","Mary"]
@@ -45,7 +44,21 @@ class Deck(object):
 		return len(self._deck) == 0
 
 	def addPlayingCards(self):
-		pass
+		for i in range(0,4):
+			self._deck.append(Card(1, ""))
+			self._deck.append(Card(2, "Go again"))
+		for i in range(0,3):
+			self._deck.append(Card(3, "Take a card from an opponent's hand"))
+			self._deck.append(Card(4, "You must discard a card to play this one"))
+			self._deck.append(Card(5, ""))
+			self._deck.append(Card(7, "Remove and discard the top card from an opponent's set"))
+			self._deck.append(Card(8, ""))
+			self._deck.append(Card(10, "10 or -1"))
+			self._deck.append(Card(11, "You must play this card or discard it to trade hands"))
+			self._deck.append(Card(12, ""))
+			self._deck.append(Card(0, "Cards cannot be removed from this set"))
+		for i in range(0,6):
+			self._deck.append(Card(99, "Play this card to the discard pile. Then draw a sorry card and play it"))
 
 	def addSorryCards(self):
 		pass
