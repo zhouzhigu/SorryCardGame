@@ -59,13 +59,21 @@ class Set(object):
 
 	def addCardToSet(self, card):
 		# if set is complete, set it complete
-		pass
+		for this_card in self._set
+			intset.append(this_card.addCardToself._set())
+		return sum(intset)
 
 	def removeCardFromSet(self,index=False):
-		pass
+		for this_card in self._set:
+			intset.append(this_card.removeCardFromself._set())
+		return sum(intset)
+	
+	
 
 	def isComplete(self):
-		return self._complete
+		if self.getValue() + card = 15:
+			return True
+		return False
 
 	def isSafe(self):
 		for thiscard in self._set:
@@ -82,6 +90,7 @@ class Set(object):
 		return False
 
 	def count(self):
+		return len(self._self)==0
 		pass
 
 	def getValue(self):
@@ -104,7 +113,7 @@ class Hand(object):
 	def removeCardFromHand(self, index):
 		for this_card in self._set:
 			intset.append(this_card.removeCardFromself._hand())
-	
+		return sum(intset)
 
 	def count(self):
 		return cards
