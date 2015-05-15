@@ -56,9 +56,9 @@ class Deck(object):
 			self._deck.append(Card(10, "10 or -1"))
 			self._deck.append(Card(11, "You must play this card or discard it to trade hands"))
 			self._deck.append(Card(12, ""))
-			self._deck.append(Card(0, "Cards cannot be removed from this set"))
+			self._deck.append(Card(0, "Safe: Cards cannot be removed from this set"))
 		for i in range(0,6):
-			self._deck.append(Card(99, "Play this card to the discard pile. Then draw a sorry card and play it"))
+			self._deck.append(Card(99, "Play this card to the discard pile. Then draw a sorry card and play it"))	
 
 	def addSorryCards(self):
 		pass
@@ -164,16 +164,16 @@ class SorryGame(object):
 	def orderForPlay(self):
 		pass
 
-	def removeTwelves(self, exempt):
+	def removeTwelves(self):
 		for this_player in self._players:
-			if this_player != exempt:
-				twelvecount = 0
+			if this_player != self.currentPlayer:
 				for this_set in this_player.getSets():
-					if 12 in this_set:
-						this_set.remove(12)
-						twelvecount += 1
-				for len(twelvecount):
-					Decks().discard(12)
+					for i, card in enumerate(this_set):
+						if i.getValue() == 0: # if the set has a safe card, it shouldnt be able to remove twelves so it continues to the next set or person
+							continue
+						if i.getValue() == 12:
+							this_set.removeCardFromSet(i)
+							Deck().discard(i)
 
 	def playPlayingCard(self, card):
 		# play the card
