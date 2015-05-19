@@ -65,6 +65,7 @@ class Deck(object):
 
 class Set(object):
 
+
 	def __init__(self):
 		# Wes
 		self._set = []
@@ -105,6 +106,9 @@ class Hand(object):
 	def __init__(self):
 		# Wes
 		self._hand = []
+		self.hand(hand)
+
+
 
 	def addCardToHand(self, card):
 		pass
@@ -116,6 +120,8 @@ class Hand(object):
 		pass
 
 class Player(object):
+
+
 
 	def __init__(self, name, age):
 		self.setName(name)
@@ -133,6 +139,7 @@ class Player(object):
 	def setAge(self):
 		return self._name
 
+
 	def choosePlay(self):
 		# return the card the player wants to play
 		# must be legal to play
@@ -143,10 +150,15 @@ def CompPlayer(Player):
 	def __init__(self):
 		random.shuffle(computerPlayerNames)
 		self.setName(computerPlayerNames.pop())
-		self.setAge(random.randint(18,99))
+		self.setAge(random.randint(18,102))
 
 	def choosePlay(self):
+		for this_set in self.currentPlayer.getSets()
+			if this_set.getValue
+			this_setissafe
 		# return the card the computer wants to play
+		self.currentPlayer.hand
+		return card
 		pass
 
 class SorryGame(object):
@@ -163,6 +175,8 @@ class SorryGame(object):
 
 	def orderForPlay(self):
 		pass
+
+
 
 	def removeTwelves(self, exempt):
 		for this_player in self._players:
@@ -181,11 +195,13 @@ class SorryGame(object):
 		# if not, return False
 		pass
 
+
 	def playSorryCard(self):
 		pass
 
 	def nextPlayer(self):
 		# return the next player
+
 
 	def printResults(self):
 		pass
