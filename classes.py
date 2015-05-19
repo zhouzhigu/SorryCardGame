@@ -67,8 +67,8 @@ class Set(object):
 		for this_card in self._set:
 			intset.append(this_card.removeCardFromself._set())
 		return sum(intset)
-	
-	
+
+
 
 	def isComplete(self):
 		if self.getValue() + card = 15:
@@ -79,7 +79,7 @@ class Set(object):
 		for thiscard in self._set:
 			if thiscard.getValue()==0:
 				return True
-		return False 
+		return False
 
 	def isEmpty(self):
 		return len(self._set)==0
