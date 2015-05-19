@@ -13,6 +13,7 @@ class Card(object):
 
 	def setValue(self, value):
 		self._value = value
+		return value
 
 	def getInstructions(self):
 		return self._instructions
@@ -70,10 +71,15 @@ class Set(object):
 		# Wes
 		self._set = []
 		self._complete = False
+		players.get_set
+		return get_set
+
+	def numberOfSets(self):
+
 
 	def addCardToSet(self, card):
 		# if set is complete, set it complete
-		pass
+
 
 	def removeCardFromSet(self,index=False):
 		pass
@@ -106,9 +112,6 @@ class Hand(object):
 	def __init__(self):
 		# Wes
 		self._hand = []
-		self.hand(hand)
-
-
 
 	def addCardToHand(self, card):
 		pass
@@ -121,7 +124,13 @@ class Hand(object):
 
 class Player(object):
 
+    def __init__(self, name, age):
+       self.setAge(Age)
+    def getName(self):
+        pass
 
+	def getName(self):
+		pass
 
 	def __init__(self, name, age):
 		self.setName(name)
@@ -141,7 +150,7 @@ class Player(object):
 
 
 	def choosePlay(self):
-		
+
 		# return the card the player wants to play
 		# must be legal to play
 
@@ -162,8 +171,18 @@ def CompPlayer(Player):
 		pass
 
 class SorryGame(object):
+    def __init__(self):
+        self.currentPlayer = None
+        self.playingDeck = Deck()
+        self.sorryDeck = Deck("sorry cards")
+    def addPlayer(self, player):
+        pass
 
-	def __init__(self):
+    def orderForPlay(self):
+        pass
+		self.dealHand == 5
+
+        def __init__(self):
 		self.currentPlayer = None
 		self.playingDeck = Deck()
 		self.sorryDeck = Deck("sorry cards")
@@ -175,6 +194,15 @@ class SorryGame(object):
 
 	def orderForPlay(self):
 		pass
+
+	def dealCard(self):
+		if self._players = 2
+		set self._set = 4
+		elif self._players = 3
+		set self._set = 3
+		elif self.players = 4
+		set self._set = 2
+		else return False
 
 
 
