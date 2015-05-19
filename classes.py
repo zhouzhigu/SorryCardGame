@@ -1,3 +1,4 @@
+
 import random
 
 computerPlayerNames = ["Bob","Mary"]
@@ -58,59 +59,81 @@ class Set(object):
 
 	def addCardToSet(self, card):
 		# if set is complete, set it complete
-		pass
+		for this_card in self._set
+			intset.append(this_card.addCardToself._set())
+		return sum(intset)
 
 	def removeCardFromSet(self,index=False):
-		pass
+		for this_card in self._set:
+			intset.append(this_card.removeCardFromself._set())
+		return sum(intset)
+	
+	
 
 	def isComplete(self):
-		pass
+		if self.getValue() + card = 15:
+			return True
+		return False
 
 	def isSafe(self):
-		pass
+		for thiscard in self._set:
+			if thiscard.getValue()==0:
+				return True
+		return False 
 
 	def isEmpty(self):
-		pass
+		return len(self._set)==0
 
-	def testCard(self,card):
-		pass
+	def testCard(self, card):
+		if self.getValue() + card < 16:
+			return True
+		return False
 
 	def count(self):
+		return len(self._self)==0
 		pass
+
+	def getValue(self):
+		intset = []
+		for this_card in self._set:
+			intset.append(this_card.getValue())
+		return sum(intset)
 
 class Hand(object):
 
-<<<<<<< HEAD
 	def __init__(self):
 		# Wes
 		self._hand = []
-		self.hand(hand)
 
 	def addCardToHand(self, card):
-		pass
+		for this_card in self._set
+			intset.append(this_card.addCardToself._hand())
+		return sum(intset)
 
 	def removeCardFromHand(self, index):
-		pass
+		for this_card in self._set:
+			intset.append(this_card.removeCardFromself._hand())
+		return sum(intset)
 
 	def count(self):
-		pass
-
+		return cards
 class Player(object):
 
 	def __init__(self, name, age):
-		pass
+		self.setName(name)
+		self.setAge(age)
 
 	def getName(self):
-		pass
+		return self._name
 
-	def setName(self):
-		pass
+	def setName(self, name):
+		self._name = name
 
 	def getAge(self):
-		pass
+		return self._age
 
-	def setAge(self):
-		pass
+	def setAge(self, age):
+		self._age = age
 
 	def choosePlay(self):
 		# return the card the player wants to play
@@ -129,10 +152,13 @@ def CompPlayer(Player):
 		pass
 
 class SorryGame(object):
+
 	def __init__(self):
 		self.currentPlayer = None
 		self.playingDeck = Deck()
 		self.sorryDeck = Deck("sorry cards")
+		self._players = []
+		self._winner = ''
 
 	def addPlayer(self, player):
 		pass
@@ -140,8 +166,16 @@ class SorryGame(object):
 	def orderForPlay(self):
 		pass
 
-	def removeTwelves(self):
-		pass
+	def removeTwelves(self, exempt):
+		for this_player in self._players:
+			if this_player != exempt:
+				twelvecount = 0
+				for this_set in this_player.getSets():
+					if 12 in this_set:
+						this_set.remove(12)
+						twelvecount += 1
+				for len(twelvecount):
+					Decks().discard(12)
 
 	def playPlayingCard(self, card):
 		# play the card
@@ -154,13 +188,26 @@ class SorryGame(object):
 
 	def nextPlayer(self):
 		# return the next player
-		pass
 
 	def printResults(self):
 		pass
 
 	def gameOver(self):
-		pass
+		self.winner = False
+		for this_player in self._players:
+			if self.winner:
+				return True
+			num = 0
+			for this_set in this_player.getSets():
+				if this_set.isComplete() == True:
+					num += 1
+			if len(self._players) == 2 and num == 4:
+				self._winner = this_player
+			if len(self._players) == 3 and num == 3:
+				self._winner = this_player
+			if len(self._players) == 4 and num == 2:
+				self._winner = this_player
+		return False
 
 	def move(self):
 		pass
