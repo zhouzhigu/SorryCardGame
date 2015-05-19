@@ -82,18 +82,30 @@ class Set(object):
 	def addCardToSet(self, card):
 		# if set is complete, set it complete
 
+        for this_card in self._set
+			intset.append(this_card.addCardToself._set())
+		return sum(intset)
 
 	def removeCardFromSet(self,index=False):
-		pass
+		for this_card in self._set:
+			intset.append(this_card.removeCardFromself._set())
+		return sum(intset)
+
+
 
 	def isComplete(self):
-		pass
+		if self.getValue() + card = 15:
+			return True
+		return False
 
 	def isSafe(self):
-		pass
+		for thiscard in self._set:
+			if thiscard.getValue()==0:
+				return True
+		return False
 
 	def isEmpty(self):
-		pass
+		return len(self._set)==0
 
 	def testCard(self, card):
 		if self.getValue() + card < 16:
@@ -101,6 +113,7 @@ class Set(object):
 		return False
 
 	def count(self):
+		return len(self._self)==0
 		pass
 
 	def getValue(self):
@@ -116,14 +129,17 @@ class Hand(object):
 		self._hand = []
 
 	def addCardToHand(self, card):
-		pass
+		for this_card in self._set
+			intset.append(this_card.addCardToself._hand())
+		return sum(intset)
 
 	def removeCardFromHand(self, index):
-		pass
+		for this_card in self._set:
+			intset.append(this_card.removeCardFromself._hand())
+		return sum(intset)
 
 	def count(self):
-		pass
-
+		return cards
 class Player(object):
 
     def __init__(self, name, age):
@@ -142,14 +158,14 @@ class Player(object):
 		print self.winner
 		return self._name
 
-	def setName(self, value):
-		self._value = value
+	def setName(self, name):
+		self._name = name
 
 	def getAge(self):
-		return self._value
+		return self._age
 
-	def setAge(self):
-		return self._name
+	def setAge(self, age):
+		self._age = age
 
 
 	def choosePlay(self):
