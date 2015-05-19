@@ -1,6 +1,8 @@
 import random
 
-computerPlayerNames = ["Bob","Mary"]
+computerPlayerNames = ["Bob","David","Steven","Luke","Chris","Molly",
+"Lily","Rebecca","Clementine","Lee","John","Tom","Kenny","Alvin","Rick","Daryl","Marcus","Karen","Maya","Ed",
+"Sharkie","Diane","Andy","Leon","Mary"]
 
 class Card(object):
 
@@ -137,6 +139,7 @@ class Player(object):
 		self.setAge(age)
 
 	def getName(self):
+		print self.winner
 		return self._name
 
 	def setName(self, value):
@@ -232,7 +235,7 @@ class SorryGame(object):
 
 
 	def printResults(self):
-		pass
+		print "Congratulations, %s ! You Won!" % self.winner.getName()
 
 	def gameOver(self):
 		self.winner = False
