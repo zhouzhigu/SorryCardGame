@@ -161,9 +161,13 @@ class CompPlayer(Player):
 		# Becky
 		# return the card the computer wants to play
 		# this_set.issafe()
+		setvalues = []
 		for this_set in self.currentPlayer.getSets():
+			setvalues.append(self.currentPlayer.getValue())
 			if this_set.getValue():
 				pass
+		for hand in slef.currentPlayer.getHand():
+			
 		self.currentPlayer.hand
 		return card
 
