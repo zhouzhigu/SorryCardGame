@@ -173,6 +173,7 @@ class SorryGame(object):
 		self.playingDeck = Deck()
 		self.sorryDeck = Deck("sorry cards")
 		self._players = []
+		self.winner = ''
 
 	def getNumberOfPlayers(self):
 		return len(self._players)
@@ -226,20 +227,20 @@ class SorryGame(object):
 
 	def gameOver(self):
 		# Alex
-		self.winner = False
 		for this_player in self._players:
-			if self.winner:
-				return True
 			num = 0
 			for this_set in this_player.getSets():
 				if this_set.isComplete() == True:
 					num += 1
 			if len(self._players) == 2 and num == 4:
 				self.winner = this_player
+				return True
 			if len(self._players) == 3 and num == 3:
 				self.winner = this_player
+				return True
 			if len(self._players) == 4 and num == 2:
 				self.winner = this_player
+				return True
 		return False
 
 	def move(self):
