@@ -1,10 +1,12 @@
-
 import random
 
-computerPlayerNames = ["Bob","Mary"]
+computerPlayerNames = [
+"Bob","David","Steven","Luke","Chris","Molly","Lily","Rebecca",
+"Clementine","Lee","John","Tom","Kenny","Alvin","Rick","Daryl",
+"Marcus","Karen","Maya","Ed","Sharkie","Diane","Andy","Leon","Mary"
+]
 
 class Card(object):
-
 	def __init__(self,value,instructions):
 		self.setValue(value)
 		self.setInstructions(instructions)
@@ -22,7 +24,6 @@ class Card(object):
 		self._instructions = instructions
 
 class Deck(object):
-
 	def __init__(self,sorry=False):
 		self._deck = []
 		self._discard = []
@@ -36,6 +37,10 @@ class Deck(object):
 		return self._deck.pop()
 
 	def shuffle(self):
+		# Brendan
+		# take all cards * if any * from self._discard
+		# add to self._deck
+		# and then shuffle self._deck
 		pass
 
 	def discard(self,card):
@@ -45,41 +50,58 @@ class Deck(object):
 		return len(self._deck) == 0
 
 	def addPlayingCards(self):
-		pass
+		for i in range(0,4):
+			self._deck.append(Card(1, ""))
+			self._deck.append(Card(2, "Go again"))
+		for i in range(0,3):
+			self._deck.append(Card(3, "Take a card from an opponent's hand"))
+			self._deck.append(Card(4, "You must discard a card to play this one"))
+			self._deck.append(Card(5, ""))
+			self._deck.append(Card(7, "Remove and discard the top card from an opponent's set"))
+			self._deck.append(Card(8, ""))
+			self._deck.append(Card(10, "10 or -1"))
+			self._deck.append(Card(11, "You must play this card or discard it to trade hands"))
+			self._deck.append(Card(12, ""))
+			self._deck.append(Card(0, "Safe: Cards cannot be removed from this set"))
+		for i in range(0,6):
+			self._deck.append(Card(99, "Play this card to the discard pile. Then draw a sorry card and play it"))
 
 	def addSorryCards(self):
+		# Brendan
 		pass
 
 class Set(object):
-
 	def __init__(self):
-		# Wes
 		self._set = []
 		self._complete = False
 
 	def addCardToSet(self, card):
-		# if set is complete, set it complete
-		pass
+		self._set.append(card)
 
-	def removeCardFromSet(self,index=False):
-		pass
+	def removeCardFromSet(self,index):
+		if not self.isSafe():
+			return self._set.pop(index)
+		return False
 
 	def isComplete(self):
-		pass
+		return self._complete
 
 	def isSafe(self):
-		pass
+		for thiscard in self._set:
+			if thiscard.getValue()==0:
+				return True
+		return False
 
 	def isEmpty(self):
-		pass
+		return len(self._set)==0
 
-	def testCard(self, card):
-		if self.getValue() + card < 16:
+	def cardFits(self, card):
+		if self.getValue() + card.getValue() < 16:
 			return True
 		return False
 
 	def count(self):
-		pass
+		return len(self._set)
 
 	def getValue(self):
 		intset = []
@@ -88,9 +110,7 @@ class Set(object):
 		return sum(intset)
 
 class Hand(object):
-
 	def __init__(self):
-		# Wes
 		self._hand = []
 
 	def addCardToHand(self, card):
@@ -100,11 +120,9 @@ class Hand(object):
 		pass
 
 	def count(self):
-		pass
+		return len(self.hand)
 
 class Player(object):
-
-
 	def __init__(self, name, age):
 		self.setName(name)
 		self.setAge(age)
@@ -112,66 +130,83 @@ class Player(object):
 	def getName(self):
 		return self._name
 
-	def setName(self, value):
-		self._value = value
+	def setName(self, name):
+		self._name = name
 
 
 	def getAge(self):
-		return self._value
+		return self._age
 
-	def setAge(self):
-
-
-		return self._name
-
+	def setAge(self, age):
+		self._age = age
 
 	def choosePlay(self):
+		# Matt
 		# return the card the player wants to play
 		# must be legal to play
 		pass
 
-def CompPlayer(Player):
+	def getSets(self):
+		# Jordan
+		# unfinished
+		# return a list of the player's sets
+		pass
 
+class CompPlayer(Player):
 	def __init__(self):
 		random.shuffle(computerPlayerNames)
 		self.setName(computerPlayerNames.pop())
-		self.setAge(random.randint(18,99))
+		self.setAge(random.randint(18,102))
 
 	def choosePlay(self):
+		# Becky
 		# return the card the computer wants to play
-		pass
+		# this_set.issafe()
+		for this_set in self.currentPlayer.getSets():
+			if this_set.getValue():
+				pass
+		self.currentPlayer.hand
+		return card
 
 class SorryGame(object):
-
 	def __init__(self):
 		self.currentPlayer = None
 		self.playingDeck = Deck()
 		self.sorryDeck = Deck("sorry cards")
 		self._players = []
 
-		self._winner = ''
+	def getNumberOfPlayers(self):
+		return len(self._players)
 
-
-	def addPlayer(self, player):
-		self._players.append(player)
-		
+	def deal(self):
+		# Jordan
+		# unfinished
+		if self.getNumberOfPlayers() == 2:
+			numberOfSets = 4
+		if self.getNumberOfPlayers() == 3:
+			numberOfSets = 3
+		if self.getNumberOfPlayers() == 4:
+			numberOfSets = 2
 
 	def orderForPlay(self):
-		
-		while True:
-			
-			
+		# Chuck
+		pass
 
-	def removeTwelves(self, exempt):
+	def addPlayer(self, player):
+		# Chuck
+		pass
+
+	def removeTwelves(self):
 		for this_player in self._players:
-			if this_player != exempt:
-				twelvecount = 0
+			if this_player != self.currentPlayer:
 				for this_set in this_player.getSets():
-					if 12 in this_set:
-						this_set.remove(12)
-						twelvecount += 1
-				for len(twelvecount):
-					Decks().discard(12)
+					for i, card in enumerate(this_set):
+						thiscardvalue = i.getValue()
+						if thiscardvalue == 0: # if the set has a safe card, shouldnt be here
+							continue
+						if thiscardvalue == 12:
+							this_set.removeCardFromSet(i)
+							self.playingDeck.discard(i)
 
 	def playPlayingCard(self, card):
 		# play the card
@@ -183,12 +218,15 @@ class SorryGame(object):
 		pass
 
 	def nextPlayer(self):
+		# Chuck
 		# return the next player
-
-	def printResults(self):
 		pass
 
+	def printResults(self):
+		print "Congratulations, %s ! You Won!" % self.winner.getName()
+
 	def gameOver(self):
+		# Alex
 		self.winner = False
 		for this_player in self._players:
 			if self.winner:
@@ -198,11 +236,11 @@ class SorryGame(object):
 				if this_set.isComplete() == True:
 					num += 1
 			if len(self._players) == 2 and num == 4:
-				self._winner = this_player
+				self.winner = this_player
 			if len(self._players) == 3 and num == 3:
-				self._winner = this_player
+				self.winner = this_player
 			if len(self._players) == 4 and num == 2:
-				self._winner = this_player
+				self.winner = this_player
 		return False
 
 	def move(self):
