@@ -2,12 +2,12 @@ from classes import *
 
 # Brendan
 def printIntroduction():
-    print "Welcome to the Sorry Card Game"
+	print "Welcome to the Sorry Card Game"
 
 # Brendan
 def printInstructions():
-    # print instructions
-    print """
+	# print instructions
+	print """
 Object: Be the first person to flip over all your Start cards
 Setup: Pick a blue, green, red or yellow card as your Start card and have them face down;
 depending on the number of players. (4 players max)
@@ -30,7 +30,7 @@ it must be 15. """
 
 # Brendan
 def getNumberOfPlayers():
-    number, noNumber = 0, True
+	number, noNumber = 0, True
 	while noNumber:
 		number = raw_input("How many players are there? ")
 		try:
@@ -38,8 +38,8 @@ def getNumberOfPlayers():
 			noNumber = False
 		except:
 			noNumber = True
-		if number in [2,3,4]:
-			noNumber = False
+		if number not in [2,3,4]:
+			noNumber = True
 	return number
 
 
@@ -54,8 +54,6 @@ def getPlayerAge():
 		except:
 			noAge = True
 	return age
-
-
 
 sorryGame = SorryGame()
 
