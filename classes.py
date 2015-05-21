@@ -122,6 +122,12 @@ class Hand(object):
 	def count(self):
 		return len(self.hand)
 
+	def printHand(self):
+		self.handToReturn
+		for index, item in enumerate(self._hand):
+			self.handToReturn.append('%s: %s') % (index, item) # will change, not working
+		return handToReturn # it could print it directly from here, but i figured you could call it by using: print thisplayer.printHand() or whatever
+
 class Player(object):
 	def __init__(self, name, age):
 		self.setName(name)
@@ -223,7 +229,7 @@ class SorryGame(object):
 		pass
 
 	def printResults(self):
-		print "Congratulations, %s ! You Won!" % self.winner.getName()
+		print "Congratulations, %s ! You Won!" % self.winner.getName() # would the .getName() part be redundent since the self.winner is already set to the winner? - Alex
 
 	def gameOver(self):
 		# Alex
@@ -242,6 +248,9 @@ class SorryGame(object):
 				self.winner = this_player
 				return True
 		return False
+
+	def printPlayers(self):
+
 
 	def move(self):
 		pass
