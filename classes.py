@@ -76,7 +76,9 @@ class Set(object):
 		self._complete = False
 
 	def addCardToSet(self, card):
-		self._set.append(card)
+			if not self.isSafe():
+				return self._set.append(index)
+			return False
 
 	def removeCardFromSet(self,index):
 		if not self.isSafe():
@@ -114,10 +116,15 @@ class Hand(object):
 		self._hand = []
 
 	def addCardToHand(self, card):
-		pass
+		if not self.isSafe():
+			return self._set.append(index)
+		return False
+	
 
 	def removeCardFromHand(self, index):
-		pass
+		if not self.isSafe():
+			return self._set.pop(index)
+		return False
 
 	def count(self):
 		return len(self.hand)
