@@ -23,6 +23,9 @@ class Card(object):
 	def setInstructions(self, instructions):
 		self._instructions = instructions
 
+	def __str__(self):
+		return "%s - %s" % (self.getValue, self.getInstructions)
+
 class Deck(object):
 	def __init__(self,sorry=False):
 		self._deck = []
@@ -122,11 +125,8 @@ class Hand(object):
 	def count(self):
 		return len(self.hand)
 
-	def printHand(self):
-		self.handToReturn
-		for index, item in enumerate(self._hand):
-			self.handToReturn.append('%s: %s') % (index, item) # will change, not working
-		return handToReturn # it could print it directly from here, but i figured you could call it by using: print thisplayer.printHand() or whatever
+	def __str__(self):
+		return "%s" % self._hand
 
 class Player(object):
 	def __init__(self, name, age):
@@ -156,6 +156,12 @@ class Player(object):
 		# unfinished
 		# return a list of the player's sets
 		pass
+
+	def __repr__(self):
+		return "Player with Name %s and age %s" % (self.getName(), self.getAge())
+
+	def __str__(self):
+		return "%s" % self.getName()
 
 class CompPlayer(Player):
 	def __init__(self):
@@ -250,7 +256,7 @@ class SorryGame(object):
 		return False
 
 	def printPlayers(self):
-
+		pass
 
 	def move(self):
 		pass
