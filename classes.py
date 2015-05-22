@@ -24,7 +24,10 @@ class Card(object):
 		self._instructions = instructions
 
 	def __str__(self):
-		return "%s - %s" % (self.getValue, self.getInstructions)
+		dash = '-'
+		card_value = self.getValue
+		card_instructions = self.getInstructions
+		return ('%s' + '%s' + '%s') % (card_value, dash, card_instructions)
 
 class Deck(object):
 	def __init__(self,sorry=False):
