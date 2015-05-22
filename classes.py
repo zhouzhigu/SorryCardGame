@@ -179,10 +179,22 @@ class CompPlayer(Player):
 		setvalues = []
 		for this_set in self.currentPlayer.getSets():
 			setvalues.append(self.currentPlayer.getValue())
-			if this_set.getValue():
-				pass
-		for hand in slef.currentPlayer.getHand():
-			
+		cardvalues = []
+		for self.currentPlayer.hand
+			cardvalues.append(self.currentPlayer.hand)
+		for i, v in enumerate(setvalues):
+			for card in self.hand
+				if v + card.getValue() == 15:
+					return card.getValue()
+					return False
+					return i
+				else:
+					for card in self.hand
+						if card.getValue() == 99
+							return card.getValue
+							return True
+							return False
+
 		self.currentPlayer.hand
 		return card
 
