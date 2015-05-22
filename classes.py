@@ -24,10 +24,9 @@ class Card(object):
 		self._instructions = instructions
 
 	def __str__(self):
-		dash = '-'
-		card_value = self.getValue
-		card_instructions = self.getInstructions
-		return ('%s' + '%s' + '%s') % (card_value, dash, card_instructions)
+		card_value = self.getValue()
+		card_instructions = self.getInstructions()
+		return '%s - %s' % (card_value, card_instructions)
 
 class Deck(object):
 	def __init__(self,sorry=False):
@@ -70,7 +69,7 @@ class Deck(object):
 			self._deck.append(Card(12, ""))
 			self._deck.append(Card(0, "Safe: Cards cannot be removed from this set"))
 		for i in range(0,6):
-			self._deck.append(Card(99, "Play this card to the discard pile. Then draw a sorry card and play it"))
+			self._deck.append(Card(99, "Sorry: Play this card to the discard pile. Then draw a sorry card and play it"))
 
 	def addSorryCards(self):
 		# Brendan
