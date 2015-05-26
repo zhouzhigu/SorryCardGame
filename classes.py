@@ -193,8 +193,7 @@ class SorryGame(object):
 		return len(self._players)
 
 	def deal(self):
-		# Jordan
-		# unfinished
+		# Chuck
 		if self.getNumberOfPlayers() == 2:
 			numberOfSets = 4
 		if self.getNumberOfPlayers() == 3:
@@ -232,8 +231,8 @@ class SorryGame(object):
 		pass
 
 	def nextPlayer(self):
-		# Chuck
-		# return the next player
+		# Jordan
+		# set self.currentPlayer to the next player
 		pass
 
 	def printResults(self):
