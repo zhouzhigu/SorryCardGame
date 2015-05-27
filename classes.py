@@ -176,9 +176,25 @@ class CompPlayer(Player):
 		# Becky
 		# return the card the computer wants to play
 		# this_set.issafe()
+		setvalues = []
 		for this_set in self.currentPlayer.getSets():
-			if this_set.getValue():
-				pass
+			setvalues.append(self.currentPlayer.getValue())
+		cardvalues = []
+		for self.currentPlayer.hand
+			cardvalues.append(self.currentPlayer.hand)
+		for i, v in enumerate(setvalues):
+			for card in self.hand
+				if v + card.getValue() == 15:
+					return card.getValue()
+					return False
+					return i
+				else:
+					for card in self.hand
+						if card.getValue() == 99
+							return card.getValue
+							return True
+							return False
+
 		self.currentPlayer.hand
 		return card
 
