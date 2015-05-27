@@ -190,7 +190,7 @@ class SorryGame(object):
 		self.sorryDeck = Deck("sorry cards")
 		self._players = []
 		self.winner = ''
-		
+
 	def getNumberOfPlayers(self):
 		return len(self._players)
 
@@ -273,6 +273,9 @@ class SorryGame(object):
 		
 	
 	
+	def printPlayers(self):
+		pass
+
 	def printPlayers(self):
 		pass
 
