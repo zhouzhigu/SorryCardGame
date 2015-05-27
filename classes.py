@@ -142,6 +142,7 @@ class Player(object):
 	def setName(self, name):
 		self._name = name
 
+
 	def getAge(self):
 		return self._age
 
@@ -217,14 +218,27 @@ class SorryGame(object):
 			numberOfSets = 3
 		if self.getNumberOfPlayers() == 4:
 			numberOfSets = 2
+		self.playingDeck.shuffle()
+		self.sorryDeck.shuffle()
+		for this_player in self._players:
+			for i in range(numberOfSets):
+				self._sets.append(Set())
+			this_player.hand = Hand()
+			for i in range(4):
+				card = self.playingDeck.draw()
+				this_player.hand.append(card)
+
+
+
 
 	def orderForPlay(self):
 		# Chuck
-		pass
+		self._players.sort(key=Player.getAge)
+
 
 	def addPlayer(self, player):
 		# Chuck
-		pass
+		_players.append(player)
 
 	def removeTwelves(self):
 		for this_player in self._players:
@@ -272,6 +286,11 @@ class SorryGame(object):
 				self.winner = this_player
 				return True
 		return False
+
+
+
+	def printPlayers(self):
+		pass
 
 	def printPlayers(self):
 		pass
