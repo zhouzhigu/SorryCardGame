@@ -69,6 +69,17 @@ sorryGame.addPlayer(Player(name,age))
 sorryGame.orderForPlay()
 sorryGame.deal()
 sorryGame.nextPlayer()
+"""
 while not sorryGame.gameOver():
 	sorryGame.move()
 sorryGame.printResults()
+"""
+
+def demo():
+    for player in sorryGame._players:
+        print i, player, player.getName(), player.getAge()
+    sorryGame.playingDeck.shuffle()
+    card = sorryGame.playingDeck.draw()
+    print card.getValue()
+    print card.getInstructions()
+

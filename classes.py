@@ -23,6 +23,11 @@ class Card(object):
 	def setInstructions(self, instructions):
 		self._instructions = instructions
 
+	def __str__(self):
+		card_value = self.getValue()
+		card_instructions = self.getInstructions()
+		return '%s - %s' % (card_value, card_instructions)
+
 class Deck(object):
 	def __init__(self,sorry=False):
 		self._deck = []
@@ -64,7 +69,7 @@ class Deck(object):
 			self._deck.append(Card(12, ""))
 			self._deck.append(Card(0, "Safe: Cards cannot be removed from this set"))
 		for i in range(0,6):
-			self._deck.append(Card(99, "Play this card to the discard pile. Then draw a sorry card and play it"))
+			self._deck.append(Card(99, "Sorry: Play this card to the discard pile. Then draw a sorry card and play it"))
 
 	def addSorryCards(self):
 		# Brendan
@@ -129,6 +134,9 @@ class Hand(object):
 	def count(self):
 		return len(self.hand)
 
+	def __str__(self):
+		return "%s" % self._hand
+
 class Player(object):
 	def __init__(self, name, age):
 		self.setName(name)
@@ -140,6 +148,7 @@ class Player(object):
 	def setName(self, name):
 		self._name = name
 
+
 	def getAge(self):
 		return self._age
 
@@ -150,6 +159,12 @@ class Player(object):
 		# Matt
 		# return the card the player wants to play
 		# must be legal to play
+		# you will return three objects
+		# card the player wants to play (or None),
+		# card the player wants to discard (or None),
+		# the index of the set the player wants to add the card to
+		# IF the player is "playing" the card that tells her to pick a sorry card,
+		# return it as the discard
 		pass
 
 	def getSets(self):
@@ -157,6 +172,12 @@ class Player(object):
 		# unfinished
 		# return a list of the player's sets
 		pass
+
+	def __repr__(self):
+		return "Player with Name %s and age %s" % (self.getName(), self.getAge())
+
+	def __str__(self):
+		return "%s" % self.getName()
 
 class CompPlayer(Player):
 	def __init__(self):
@@ -167,12 +188,27 @@ class CompPlayer(Player):
 	def choosePlay(self):
 		# Becky
 		# return the card the computer wants to play
-		# this_set.issafe()
+		# must be legal to play
+		# you will return three objects
+		# card the player wants to play (or None),
+		# card the player wants to discard (or None),
+		# the index of the set the player wants to add the card to
+		# IF the player is "playing" the card that tells her to pick a sorry card,
+		# return it as the discard
+		setvalues = []
 		for this_set in self.currentPlayer.getSets():
-			if this_set.getValue():
-				pass
-		self.currentPlayer.hand
-		return card
+			setvalues.append(self.currentPlayer.getValue())
+		cardvalues = []
+		for card in self.currentPlayer.hand:
+			cardvalues.append(card):
+		for i, v in enumerate(setvalues):
+			for card in self.hand
+				if v + card.getValue() == 15:
+					return i
+				elif 99 in cadvalues:
+					for j,card in enumerate(self.hand):
+						if card.getValue() == 99:
+							return i
 
 class SorryGame(object):
 	def __init__(self):
@@ -180,27 +216,40 @@ class SorryGame(object):
 		self.playingDeck = Deck()
 		self.sorryDeck = Deck("sorry cards")
 		self._players = []
+		self.winner = ''
 
 	def getNumberOfPlayers(self):
 		return len(self._players)
 
 	def deal(self):
-		# Jordan
-		# unfinished
+		# Chuck
 		if self.getNumberOfPlayers() == 2:
 			numberOfSets = 4
 		if self.getNumberOfPlayers() == 3:
 			numberOfSets = 3
 		if self.getNumberOfPlayers() == 4:
 			numberOfSets = 2
+		self.playingDeck.shuffle()
+		self.sorryDeck.shuffle()
+		for this_player in self._players:
+			for i in range(numberOfSets):
+				self._sets.append(Set())
+			this_player.hand = Hand()
+			for i in range(4):
+				card = self.playingDeck.draw()
+				this_player.hand.append(card)
+
+
+
 
 	def orderForPlay(self):
 		# Chuck
-		pass
+		self._players.sort(key=Player.getAge)
+
 
 	def addPlayer(self, player):
 		# Chuck
-		pass
+		_players.append(player)
 
 	def removeTwelves(self):
 		for this_player in self._players:
@@ -224,30 +273,33 @@ class SorryGame(object):
 		pass
 
 	def nextPlayer(self):
-		# Chuck
-		# return the next player
+		# Jordan
+		# set self.currentPlayer to the next player
 		pass
 
 	def printResults(self):
-		print "Congratulations, %s ! You Won!" % self.winner.getName()
+		print "Congratulations, %s ! You Won!" % self.winner
 
 	def gameOver(self):
 		# Alex
-		self.winner = False
 		for this_player in self._players:
-			if self.winner:
-				return True
 			num = 0
 			for this_set in this_player.getSets():
 				if this_set.isComplete() == True:
 					num += 1
 			if len(self._players) == 2 and num == 4:
 				self.winner = this_player
+				return True
 			if len(self._players) == 3 and num == 3:
 				self.winner = this_player
+				return True
 			if len(self._players) == 4 and num == 2:
 				self.winner = this_player
+				return True
 		return False
+
+	def printPlayers(self):
+		pass
 
 	def move(self):
 		pass
