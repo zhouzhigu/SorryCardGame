@@ -227,7 +227,7 @@ class SorryGame(object):
 		# if not, return False
 		pass
 
-	def playSorryCard(self):
+	def playSorryCard(self):*
 		pass
 
 	def nextPlayer(self):
@@ -260,4 +260,43 @@ class SorryGame(object):
 		pass
 
 	def move(self):
-		pass
+		theSets = self.currentPlayer.getSets()
+		card, discard, setIndex = self.currentPlayer.choosePlay()
+		if card.getValue() == 4 and discard != 'none': # not sure if we would use None or 'none'
+			self.playingDeck.discard(discard)
+			self.currentPlayer.Hand.removeCardFromHand(index(card), index(discard))
+			theSets[setIndex].append(card)
+		if card.getValue() == 99: # the user would input the sorry card as the card, not discard - seems to make more sense to me this way, we can just discard it from here
+			self.playingDeck.discard(card)
+			self.currentPlayer.Hand.removeCardFromHand(index(card))
+			self.playSorryCard()
+		if card.getValue() == 1 or 5 or 8 or 12:
+			self.currentPlayer.Hand.removeCardFromHand(index(card))
+			theSets[setIndex].append(card)
+		if card.getValue() == 3:
+			self.currentPlayer.Hand.removeCardFromHand(index(card))
+			theSets[setIndex].append(card)
+			self.currentPlayer.Hand.addCardToHand(self.playPlayingCard(card))
+		if card.getValue() == 7:
+			self.currentPlayer.Hand.removeCardFromHand(index(card))
+			theSets[setIndex].append(card)
+			self.playingDeck.discard(self.playPlayingCard(card))
+		if card.getValue() == 11:
+			self.currentPlayer.Hand.removeCardFromHand(index(card))
+			theSets[setIndex].append(card)
+			self.playPlayingCard(card) # the playPlayingCard can handle the whole hand swap
+		elif discard.getValue() == 11:
+			self.currentplayer.Hand.removeCardFromHand(index(card))
+			self.playingDeck.discard(card)
+			self.playPlayingCard(card) # same logic as the if statement above, just changes if its being discarded instead of being played
+		if card.getValue() == 0:
+			self.currentPlayer.Hand.removeCardFromHand(index(card))
+			theSets[setIndex].append(card)
+		if card.getValue() == 10:
+			self.currentPlayer.Hand.removeCardFromHand(index(card))
+			theSets[setIndex].append(self.playPlayingCard(card)) # would return the value either 10 or -1 and then add it to the sets
+		if card.getValue() == 2:
+			self.currentPlayer.Hand.removeCardFromHand(index(card))
+			theSets[setIndex].append(card)
+			self.nextPlayer
+		self.nextPlayer # i think this would be the end, not sure.
