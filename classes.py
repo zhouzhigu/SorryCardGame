@@ -330,8 +330,12 @@ class SorryGame(object):
 		if card.getValue() == 10:
 			self.currentPlayer.Hand.removeCardFromHand(index(card))
 			theSets[setIndex].append(self.playPlayingCard(card)) # would return the value either 10 or -1 and then add it to the sets
+		if discard:
+			self.currentPlayer.Hand.removeCardFromHand(index(card))
+			self.playingDeck.discard(card)
+			self.nextPlayer()
 		if card.getValue() == 2:
 			self.currentPlayer.Hand.removeCardFromHand(index(card))
 			theSets[setIndex].append(card)
-			self.nextPlayer
-		self.nextPlayer # i think this would be the end, not sure.
+			self.nextPlayer()
+		self.nextPlayer() # i think this would be the end, not sure.
