@@ -141,6 +141,7 @@ class Player(object):
 	def setName(self, name):
 		self._name = name
 
+
 	def getAge(self):
 		return self._age
 
@@ -151,6 +152,12 @@ class Player(object):
 		# Matt
 		# return the card the player wants to play
 		# must be legal to play
+		# you will return three objects
+		# card the player wants to play (or None),
+		# card the player wants to discard (or None),
+		# the index of the set the player wants to add the card to
+		# IF the player is "playing" the card that tells her to pick a sorry card,
+		# return it as the discard
 		pass
 
 	def getSets(self):
@@ -174,12 +181,27 @@ class CompPlayer(Player):
 	def choosePlay(self):
 		# Becky
 		# return the card the computer wants to play
-		# this_set.issafe()
+		# must be legal to play
+		# you will return three objects
+		# card the player wants to play (or None),
+		# card the player wants to discard (or None),
+		# the index of the set the player wants to add the card to
+		# IF the player is "playing" the card that tells her to pick a sorry card,
+		# return it as the discard
+		setvalues = []
 		for this_set in self.currentPlayer.getSets():
-			if this_set.getValue():
-				pass
-		self.currentPlayer.hand
-		return card
+			setvalues.append(self.currentPlayer.getValue())
+		cardvalues = []
+		for card in self.currentPlayer.hand:
+			cardvalues.append(card):
+		for i, v in enumerate(setvalues):
+			for card in self.hand
+				if v + card.getValue() == 15:
+					return i
+				elif 99 in cadvalues:
+					for j,card in enumerate(self.hand):
+						if card.getValue() == 99:
+							return i
 
 class SorryGame(object):
 	def __init__(self):
@@ -200,14 +222,27 @@ class SorryGame(object):
 			numberOfSets = 3
 		if self.getNumberOfPlayers() == 4:
 			numberOfSets = 2
+		self.playingDeck.shuffle()
+		self.sorryDeck.shuffle()
+		for this_player in self._players:
+			for i in range(numberOfSets):
+				self._sets.append(Set())
+			this_player.hand = Hand()
+			for i in range(4):
+				card = self.playingDeck.draw()
+				this_player.hand.append(card)
+
+
+
 
 	def orderForPlay(self):
 		# Chuck
-		pass
+		self._players.sort(key=Player.getAge)
+
 
 	def addPlayer(self, player):
 		# Chuck
-		pass
+		_players.append(player)
 
 	def removeTwelves(self):
 		for this_player in self._players:
@@ -236,7 +271,7 @@ class SorryGame(object):
 		pass
 
 	def printResults(self):
-		print "Congratulations, %s ! You Won!" % self.winner.getName() # would the .getName() part be redundent since the self.winner is already set to the winner? - Alex
+		print "Congratulations, %s ! You Won!" % self.winner
 
 	def gameOver(self):
 		# Alex
