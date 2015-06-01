@@ -226,8 +226,9 @@ class SorryGame(object):
 		self.playingDeck.shuffle()
 		self.sorryDeck.shuffle()
 		for this_player in self._players:
+			this_player._sets = []
 			for i in range(numberOfSets):
-				self._sets.append(Set())
+				this_player._sets.append(Set())
 			this_player.hand = Hand()
 			for i in range(4):
 				card = self.playingDeck.draw()
