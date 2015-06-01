@@ -155,7 +155,7 @@ class Player(object):
 	def choosePlay(self):
 		isReady == False
 		while isReady == False:
-			print self.currentPlayers.hand
+			print self.currentPlayer.hand
 			try:
 				card = raw_input(int("choose a card to play "))
 				discard = raw_input(int("choose card to discard "))
@@ -164,11 +164,13 @@ class Player(object):
 			except:
 				noNumber = True
 			if card.getValue() == 99:
-				discard == card
-				card == none
+				discard = card
+				card = None
 			if self.setIndex.cardFits(card) = True:
-				isREady == True
-			return card, discard, setIndex
+				isReady == True
+		# I assume you want to do this after the loop breaks
+		# so I unindented one level
+		return card, discard, setIndex
 
 	def getSets(self):
 		return self._sets
