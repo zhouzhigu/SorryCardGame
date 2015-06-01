@@ -149,16 +149,22 @@ class Player(object):
 		self._age = age
 
 	def choosePlay(self):
-		# Matt
-		# return the card the player wants to play
-		# must be legal to play
-		# you will return three objects
-		# card the player wants to play (or None),
-		# card the player wants to discard (or None),
-		# the index of the set the player wants to add the card to
-		# IF the player is "playing" the card that tells her to pick a sorry card,
-		# return it as the discard
-		pass
+		isReady == False
+		while isReady == False:
+			print self.currentPlayers.hand
+			try:
+				card = raw_input(int("choose a card to play "))
+				discard = raw_input(int("choose card to discard "))
+				setIndex = raw_input(int("set index "))
+				noNumber = False
+			except:
+				noNumber = True
+			if card.getValue() == 99:
+				discard == card
+				card == none
+			if self.setIndex.cardFits(card) = True:
+				isREady == True
+			return card, discard, setIndex
 
 	def getSets(self):
 		# Jordan
