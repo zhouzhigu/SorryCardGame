@@ -81,4 +81,3 @@ def demo():
     card = sorryGame.playingDeck.draw()
     print card.getValue()
     print card.getInstructions()
-
