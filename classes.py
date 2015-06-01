@@ -141,7 +141,6 @@ class Player(object):
 	def setName(self, name):
 		self._name = name
 
-
 	def getAge(self):
 		return self._age
 
