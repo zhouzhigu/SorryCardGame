@@ -105,6 +105,11 @@ class Set(object):
 			return True
 		return False
 
+	def cardWins(self, card):
+		if self.getValue() + card.getValue() == 15:
+			return True
+		return False
+
 	def count(self):
 		return len(self._set)
 
@@ -234,16 +239,13 @@ class SorryGame(object):
 				card = self.playingDeck.draw()
 				this_player.hand.append(card)
 
-
-
-
 	def orderForPlay(self):
 		# Chuck
 		self._players.sort(key=Player.getAge)
 
 	def addPlayer(self, player):
 		# Chuck
-		_players.append(player)
+		self._players.append(player)
 
 	def removeTwelves(self):
 		for this_player in self._players:
