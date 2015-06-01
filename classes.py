@@ -269,7 +269,7 @@ class SorryGame(object):
 		# if not, return False
 		pass
 
-	def playSorryCard(self):*
+	def playSorryCard(self):
 		pass
 
 	def nextPlayer(self):
@@ -305,45 +305,29 @@ class SorryGame(object):
 	def move(self):
 		theSets = self.currentPlayer.getSets()
 		card, discard, setIndex = self.currentPlayer.choosePlay()
-		if card.getValue() == 4 and discard != 'none': # not sure if we would use None or 'none'
-			self.playingDeck.discard(discard)
-			self.currentPlayer.Hand.removeCardFromHand(index(card), index(discard))
-			theSets[setIndex].append(card)
-		if card.getValue() == 99: # the user would input the sorry card as the card, not discard - seems to make more sense to me this way, we can just discard it from here
+		try:
+			cardValue = card.getValue()
+		except:
+			cardValue = None
+		if isinstance(discard, Card):
 			self.playingDeck.discard(card)
-			self.currentPlayer.Hand.removeCardFromHand(index(card))
-			self.playSorryCard()
-		if card.getValue() == 1 or 5 or 8 or 12:
-			self.currentPlayer.Hand.removeCardFromHand(index(card))
-			theSets[setIndex].append(card)
-		if card.getValue() == 3:
-			self.currentPlayer.Hand.removeCardFromHand(index(card))
-			theSets[setIndex].append(card)
-			self.currentPlayer.Hand.addCardToHand(self.playPlayingCard(card))
-		if card.getValue() == 7:
-			self.currentPlayer.Hand.removeCardFromHand(index(card))
-			theSets[setIndex].append(card)
-			self.playingDeck.discard(self.playPlayingCard(card))
-		if card.getValue() == 11:
-			self.currentPlayer.Hand.removeCardFromHand(index(card))
-			theSets[setIndex].append(card)
-			self.playPlayingCard(card) # the playPlayingCard can handle the whole hand swap
-		elif discard.getValue() == 11:
-			self.currentplayer.Hand.removeCardFromHand(index(card))
-			self.playingDeck.discard(card)
-			self.playPlayingCard(card) # same logic as the if statement above, just changes if its being discarded instead of being played
-		if card.getValue() == 0:
-			self.currentPlayer.Hand.removeCardFromHand(index(card))
-			theSets[setIndex].append(card)
-		if card.getValue() == 10:
-			self.currentPlayer.Hand.removeCardFromHand(index(card))
-			theSets[setIndex].append(self.playPlayingCard(card)) # would return the value either 10 or -1 and then add it to the sets
-		if discard:
-			self.currentPlayer.Hand.removeCardFromHand(index(card))
-			self.playingDeck.discard(card)
+		if card is not None:
+			if cardValue == 99: # the user would input the sorry card as the card, not discard - seems to make more sense to me this way, we can just discard it from here
+				self.playingDeck.discard(card)
+				self.playSorryCard()
+			if cardValue in [-1, 1, 2, 4, 5, 8, 10, 12, 0]:
+				theSets[setIndex].addCardToSet(card)
+			if cardValue == 3:
+				theSets[setIndex].addCardToSet(card)
+				self.currentPlayer.Hand.addCardToHand(self.stealCardFromHand(card))
+			if cardValue == 7:
+				theSets[setIndex].addCardToSet(card)
+				self.playingDeck.discard(self.stealCardFromSet(card))
+			if cardValue == 11:
+				theSets[setIndex].addCardToSet(card)
+				self.tradeHands(self.currentPlayer)
+			elif discardValue == 11:
+				self.playingDeck.discard(card)
+				self.tradeHands(self.currentPlayer) # same logic as the if statement above, just changes if its being discarded instead of being played
+		if cardValue != 2:
 			self.nextPlayer()
-		if card.getValue() == 2:
-			self.currentPlayer.Hand.removeCardFromHand(index(card))
-			theSets[setIndex].append(card)
-			self.nextPlayer()
-		self.nextPlayer() # i think this would be the end, not sure.
