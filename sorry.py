@@ -68,7 +68,6 @@ age = getPlayerAge()
 sorryGame.addPlayer(Player(name,age))
 sorryGame.orderForPlay()
 sorryGame.deal()
-sorryGame.nextPlayer()
 """
 while not sorryGame.gameOver():
 	sorryGame.move()

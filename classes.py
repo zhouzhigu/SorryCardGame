@@ -217,6 +217,7 @@ class SorryGame(object):
 
 	def deal(self):
 		# Chuck
+		self.nextPlayer()
 		if self.getNumberOfPlayers() == 2:
 			numberOfSets = 4
 		if self.getNumberOfPlayers() == 3:
