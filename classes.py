@@ -160,10 +160,13 @@ class Player(object):
 		pass
 
 	def getSets(self):
-		# Jordan
-		# unfinished
-		# return a list of the player's sets
-		pass
+		playerCount == len(sorryGame._player)
+		if playerCount == 2:
+			return self.set1.set.set2.Sets._sets, self.sets3.Set_set, self.set4.Sets._sets
+		elif playerCount == 3:
+			return self.set1.Sets._set, self2.Sets._set, self.set3.Sets._set
+		else:
+			return self.set1.Sets._set, self.set2._set
 
 	def __repr__(self):
 		return "Player with Name %s and age %s" % (self.getName(), self.getAge())
@@ -238,7 +241,6 @@ class SorryGame(object):
 		# Chuck
 		self._players.sort(key=Player.getAge)
 
-
 	def addPlayer(self, player):
 		# Chuck
 		_players.append(player)
@@ -267,7 +269,8 @@ class SorryGame(object):
 	def nextPlayer(self):
 		# Jordan
 		# set self.currentPlayer to the next player
-		pass
+		self._players.append(self.currentPlayer)
+		self.currentPlayer = self._player.pop(0)
 
 	def printResults(self):
 		print "Congratulations, %s ! You Won!" % self.winner
