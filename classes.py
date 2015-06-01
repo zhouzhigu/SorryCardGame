@@ -146,10 +146,13 @@ class Player(object):
 		pass
 
 	def getSets(self):
-		# Jordan
-		# unfinished
-		# return a list of the player's sets
-		pass
+		playerCount == len(sorryGame._player)
+		if playerCount == 2:
+			return self.set1.set.set2.Sets._sets, self.sets3.Set_set, self.set4.Sets._sets
+		elif playerCount == 3:
+			return self.set1.Sets._set, self2.Sets._set, self.set3.Sets._set
+		else:
+			return self.set1.Sets._set, self.set2._set
 
 class CompPlayer(Player):
 	def __init__(self):
@@ -188,7 +191,9 @@ class SorryGame(object):
 			numberOfSets = 2
 
 	def orderForPlay(self):
-		# Chuck
+		for i in self._player 
+		if self._player == self.currenPlayer
+		
 		pass
 
 	def addPlayer(self, player):
@@ -217,10 +222,9 @@ class SorryGame(object):
 		pass
 
 	def nextPlayer(self):
-		# Chuck
-		# return the next player
-		pass
-
+		self._player.append(self.currentPlayer)
+		self.currentPlayer = self._player.pop(0)
+		
 	def printResults(self):
 		print "Congratulations, %s ! You Won!" % self.winner.getName()
 
