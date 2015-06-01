@@ -165,13 +165,7 @@ class Player(object):
 		pass
 
 	def getSets(self):
-		playerCount == len(sorryGame._player)
-		if playerCount == 2:
-			return self.set1.set.set2.Sets._sets, self.sets3.Set_set, self.set4.Sets._sets
-		elif playerCount == 3:
-			return self.set1.Sets._set, self2.Sets._set, self.set3.Sets._set
-		else:
-			return self.set1.Sets._set, self.set2._set
+		return self._sets
 
 	def __repr__(self):
 		return "Player with Name %s and age %s" % (self.getName(), self.getAge())
