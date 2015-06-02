@@ -81,14 +81,12 @@ class Set(object):
 		self._complete = False
 
 	def addCardToSet(self, card):
-			if not self.isSafe():
-				return self._set.append(index)
-			return False
+		if not self.isSafe():
+			self._set.append(index)
 
 	def removeCardFromSet(self,index):
 		if not self.isSafe():
 			return self._set.pop(index)
-		return False
 
 	def isComplete(self):
 		return self._complete
@@ -126,15 +124,12 @@ class Hand(object):
 		self._hand = []
 
 	def addCardToHand(self, card):
-		if not self.isSafe():
-			return self._set.append(index)
-		return False
+		self._set.append(index)
+
 	
 
 	def removeCardFromHand(self, index):
-		if not self.isSafe():
-			return self._set.pop(index)
-		return False
+		return self._set.pop(index)
 
 	def count(self):
 		return len(self.hand)
