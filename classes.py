@@ -281,29 +281,25 @@ class SorryGame(object):
 		pass
 
 	def playSorryCard(self):
-		if card.getValue() == 1:
-			self.drawtwo()
-		elif card.getValue() == 2:
-			self.takeOneOpponentCard()
-		elif card.getValue() == 3:
-			self.takeOpponentLastCard()
-		elif card.getValue() == 4:
-			self.takeOpponentTopCard()
-		elif card.getValue() == 5:
+		cardValue = card.getValue()
+		if cardValue == 1:
+			self.drawTwo()
+		elif cardValue == 2:
+			self.lookTakeAndPlay()
+		elif cardValue == 3:
+			self.takeLastCard()
+		elif cardValue == 4:
+			self.takeTopCard()
+		elif cardValue == 5:
 			self.removeLastCard()
-		elif card.getValue() == 6:
-			self.takeOpponentSet()
-		elif card.getValue() == 7:
+		elif cardValue == 6:
+			self.takeSet()
+		elif cardValue == 7:
 			self.opponentsGiveACard()
-		elif card.getValue() == 8:
-			return self._complete
-		elif card.getValue() == 9:
+		elif cardValue == 8:
 			self.removeTwelves()
-		elif card.getValue() == 10:
-			self.removeLastCard()
-		else:
-			return False
-
+		elif cardValue == 9:
+			self.completeSet()
 
 	def nextPlayer(self):
 		# Jordan
