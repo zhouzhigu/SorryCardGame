@@ -221,7 +221,6 @@ class CompPlayer(Player):
 					for j,card in enumerate(self.hand):
 						if card.getValue() == 99:
 							return i
-
 class SorryGame(object):
 	def __init__(self):
 		self.currentPlayer = None
@@ -283,23 +282,23 @@ class SorryGame(object):
 	def playSorryCard(self):
 		cardValue = card.getValue()
 		if cardValue == 1:
-			self.drawTwo()
+			self.currentPlayer.drawTwo()
 		elif cardValue == 2:
-			self.lookTakeAndPlay()
+			self.currentPlayer.lookTakeAndPlay()
 		elif cardValue == 3:
-			self.takeLastCard()
+			self.currentPlayer.takeLastCard()
 		elif cardValue == 4:
-			self.takeTopCard()
+			self.currentPlayer.takeTopCard()
 		elif cardValue == 5:
-			self.removeLastCard()
+			self.currentPlayer.removeLastCard()
 		elif cardValue == 6:
-			self.takeSet()
+			self.currentPlayer.takeSet()
 		elif cardValue == 7:
-			self.opponentsGiveACard()
+			self.currentPlayer.opponentsGiveACard()
 		elif cardValue == 8:
-			self.removeTwelves()
+			self.currentPlayer.removeTwelves()
 		elif cardValue == 9:
-			self.completeSet()
+			self.currentPlayer.completeSet()
 
 	def nextPlayer(self):
 		# Jordan
