@@ -317,7 +317,7 @@ class SorryGame(object):
 			if cardValue == 99:
 				self.playingDeck.discard(card)
 				self.playSorryCard()
-			if cardValue in [-1, 1, 2, 4, 5, 8, 10, 12, 0]:
+			if cardValue in [-1, 0, 1, 2, 4, 5, 8, 10, 12]:
 				theSets[setIndex].addCardToSet(card)
 			if cardValue == 3:
 				theSets[setIndex].addCardToSet(card)
