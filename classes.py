@@ -107,6 +107,11 @@ class Set(object):
 			return True
 		return False
 
+	def cardWins(self, card):
+		if self.getValue() + card.getValue() == 15:
+			return True
+		return False
+
 	def count(self):
 		return len(self._set)
 
@@ -148,7 +153,6 @@ class Player(object):
 	def setName(self, name):
 		self._name = name
 
-
 	def getAge(self):
 		return self._age
 
@@ -166,12 +170,27 @@ class Player(object):
 		# IF the player is "playing" the card that tells her to pick a sorry card,
 		# return it as the discard
 		pass
+		isReady == False
+		while isReady == False:
+			print self.currentPlayer.hand
+			try:
+				card = raw_input(int("choose a card to play "))
+				discard = raw_input(int("choose card to discard "))
+				setIndex = raw_input(int("set index "))
+				noNumber = False
+			except:
+				noNumber = True
+			if card.getValue() == 99:
+				discard = card
+				card = None
+			if self.setIndex.cardFits(card) = True:
+				isReady == True
+		# I assume you want to do this after the loop breaks
+		# so I unindented one level
+		return card, discard, setIndex
 
 	def getSets(self):
-		# Jordan
-		# unfinished
-		# return a list of the player's sets
-		pass
+		return self._sets
 
 	def __repr__(self):
 		return "Player with Name %s and age %s" % (self.getName(), self.getAge())
@@ -216,40 +235,39 @@ class SorryGame(object):
 		self.playingDeck = Deck()
 		self.sorryDeck = Deck("sorry cards")
 		self._players = []
-		self.winner = ''
+		self.winner = None
 
 	def getNumberOfPlayers(self):
 		return len(self._players)
 
 	def deal(self):
 		# Chuck
-		if self.getNumberOfPlayers() == 2:
+		self.nextPlayer()
+		numPlayers = self.getNumberOfPlayers()
+		if numPlayers == 2:
 			numberOfSets = 4
-		if self.getNumberOfPlayers() == 3:
+		if numPlayers == 3:
 			numberOfSets = 3
-		if self.getNumberOfPlayers() == 4:
+		if numPlayers == 4:
 			numberOfSets = 2
 		self.playingDeck.shuffle()
 		self.sorryDeck.shuffle()
 		for this_player in self._players:
+			this_player._sets = []
 			for i in range(numberOfSets):
-				self._sets.append(Set())
+				this_player._sets.append(Set())
 			this_player.hand = Hand()
 			for i in range(4):
 				card = self.playingDeck.draw()
 				this_player.hand.append(card)
 
-
-
-
 	def orderForPlay(self):
 		# Chuck
 		self._players.sort(key=Player.getAge)
 
-
 	def addPlayer(self, player):
 		# Chuck
-		_players.append(player)
+		self._players.append(player)
 
 	def removeTwelves(self):
 		for this_player in self._players:
@@ -270,12 +288,31 @@ class SorryGame(object):
 		pass
 
 	def playSorryCard(self):
-		pass
+		cardValue = card.getValue()
+		if cardValue == 1:
+			self.drawTwo()
+		elif cardValue == 2:
+			self.lookTakeAndPlay()
+		elif cardValue == 3:
+			self.takeLastCard()
+		elif cardValue == 4:
+			self.takeTopCard()
+		elif cardValue == 5:
+			self.removeLastCard()
+		elif cardValue == 6:
+			self.takeSet()
+		elif cardValue == 7:
+			self.opponentsGiveACard()
+		elif cardValue == 8:
+			self.removeTwelves()
+		elif cardValue == 9:
+			self.completeSet()
 
 	def nextPlayer(self):
 		# Jordan
 		# set self.currentPlayer to the next player
-		pass
+		self._players.append(self.currentPlayer)
+		self.currentPlayer = self._player.pop(0)
 
 	def printResults(self):
 		print "Congratulations, %s ! You Won!" % self.winner
@@ -302,4 +339,34 @@ class SorryGame(object):
 		pass
 
 	def move(self):
-		pass
+		theSets = self.currentPlayer.getSets()
+		card, discard, setIndex = self.currentPlayer.choosePlay()
+		try:
+			cardValue = card.getValue()
+		except:
+			cardValue = None
+		if isinstance(discard, Card):
+			self.playingDeck.discard(card)
+		if card is not None:
+			# the user would input the sorry card as the card, not discard
+			if cardValue == 99:
+				self.playingDeck.discard(card)
+				self.playSorryCard()
+			if cardValue in [-1, 0, 1, 2, 4, 5, 8, 10, 12]:
+				theSets[setIndex].addCardToSet(card)
+			if cardValue == 3:
+				theSets[setIndex].addCardToSet(card)
+				self.currentPlayer.Hand.addCardToHand(self.stealCardFromHand(card))
+			if cardValue == 7:
+				theSets[setIndex].addCardToSet(card)
+				self.playingDeck.discard(self.stealCardFromSet(card))
+			if cardValue == 11:
+				theSets[setIndex].addCardToSet(card)
+				self.tradeHands(self.currentPlayer)
+			elif discardValue == 11:
+				self.playingDeck.discard(card)
+				# same logic as the if statement above,
+				# just changes if its being discarded instead of being played
+				self.tradeHands(self.currentPlayer)
+		if cardValue != 2:
+			self.nextPlayer()
