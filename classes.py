@@ -345,21 +345,7 @@ class SorryGame(object):
 			if cardValue == 99:
 				self.playingDeck.discard(card)
 				self.playSorryCard()
-			if cardValue in [-1, 0, 1, 2, 4, 5, 8, 10, 12]:
+			else:
 				theSets[setIndex].addCardToSet(card)
-			if cardValue == 3:
-				theSets[setIndex].addCardToSet(card)
-				self.currentPlayer.Hand.addCardToHand(self.stealCardFromHand(card))
-			if cardValue == 7:
-				theSets[setIndex].addCardToSet(card)
-				self.playingDeck.discard(self.stealCardFromSet(card))
-			if cardValue == 11:
-				theSets[setIndex].addCardToSet(card)
-				self.tradeHands(self.currentPlayer)
-			elif discardValue == 11:
-				self.playingDeck.discard(card)
-				# same logic as the if statement above,
-				# just changes if its being discarded instead of being played
-				self.tradeHands(self.currentPlayer)
 		if cardValue != 2:
 			self.nextPlayer()
