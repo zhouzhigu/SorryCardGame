@@ -153,6 +153,16 @@ class Player(object):
 		self._age = age
 
 	def choosePlay(self):
+		# Matt
+		# return the card the player wants to play
+		# must be legal to play
+		# you will return three objects
+		# card the player wants to play (or None),
+		# card the player wants to discard (or None),
+		# the index of the set the player wants to add the card to
+		# IF the player is "playing" the card that tells her to pick a sorry card,
+		# return it as the discard
+		pass
 		isReady == False
 		while isReady == False:
 			print self.currentPlayer.hand
@@ -271,7 +281,30 @@ class SorryGame(object):
 		pass
 
 	def playSorryCard(self):
-		pass
+		while True:
+			if card.getValue() == 1:
+				self.drawtwo()
+			elif card.getValue() == 2:
+				self.takeOneOpponentCard()
+			elif card.getValue() == 3:
+				self.takeOpponentLastCard()
+			elif card.getValue() == 4:
+				self.takeOpponentTopCard()
+			elif card.getValue() == 5:
+				self.removeLastCard()
+			elif card.getValue() == 6:
+				self.takeOpponentSet()
+			elif card.getValue() == 7:
+				self.opponentsGiveACard()
+			elif card.getValue() == 8:
+				return self._complete
+			elif card.getValue() == 9:
+				self.removeTwelves()
+			elif card.getValue() == 10:
+				self.removeLastCard()
+			else:
+				return False
+
 
 	def nextPlayer(self):
 		# Jordan
