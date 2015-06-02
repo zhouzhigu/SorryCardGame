@@ -46,7 +46,12 @@ class Deck(object):
 		# take all cards * if any * from self._discard
 		# add to self._deck
 		# and then shuffle self._deck
-		pass
+		
+		for this_card in self._discard:
+			self._deck.append(this_card)
+		for i in range(7):
+			random.shuffle(self._deck)
+
 
 	def discard(self,card):
 		self._discard.append(card)
