@@ -313,7 +313,8 @@ class SorryGame(object):
 		if isinstance(discard, Card):
 			self.playingDeck.discard(card)
 		if card is not None:
-			if cardValue == 99: # the user would input the sorry card as the card, not discard - seems to make more sense to me this way, we can just discard it from here
+			# the user would input the sorry card as the card, not discard
+			if cardValue == 99:
 				self.playingDeck.discard(card)
 				self.playSorryCard()
 			if cardValue in [-1, 1, 2, 4, 5, 8, 10, 12, 0]:
@@ -329,6 +330,8 @@ class SorryGame(object):
 				self.tradeHands(self.currentPlayer)
 			elif discardValue == 11:
 				self.playingDeck.discard(card)
-				self.tradeHands(self.currentPlayer) # same logic as the if statement above, just changes if its being discarded instead of being played
+				# same logic as the if statement above,
+				# just changes if its being discarded instead of being played
+				self.tradeHands(self.currentPlayer)
 		if cardValue != 2:
 			self.nextPlayer()
