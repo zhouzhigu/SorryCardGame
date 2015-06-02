@@ -41,7 +41,7 @@ def getNumberOfPlayers():
 		if not in [2,3,4]:
 			no
 	return number
-	
+	0
 
 # Brendan
 def getPlayerAge():
