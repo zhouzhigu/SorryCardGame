@@ -226,11 +226,12 @@ class SorryGame(object):
 	def deal(self):
 		# Chuck
 		self.nextPlayer()
-		if self.getNumberOfPlayers() == 2:
+		numPlayers = self.getNumberOfPlayers()
+		if numPlayers == 2:
 			numberOfSets = 4
-		if self.getNumberOfPlayers() == 3:
+		if numPlayers == 3:
 			numberOfSets = 3
-		if self.getNumberOfPlayers() == 4:
+		if numPlayers == 4:
 			numberOfSets = 2
 		self.playingDeck.shuffle()
 		self.sorryDeck.shuffle()
