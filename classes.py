@@ -24,10 +24,9 @@ class Card(object):
 		self._instructions = instructions
 
 	def __str__(self):
-		dash = '-'
-		card_value = self.getValue
-		card_instructions = self.getInstructions
-		return ('%s' + '%s' + '%s') % (card_value, dash, card_instructions)
+		card_value = self.getValue()
+		card_instructions = self.getInstructions()
+		return '%s - %s' % (card_value, card_instructions)
 
 class Deck(object):
 	def __init__(self,sorry=False):
@@ -70,7 +69,7 @@ class Deck(object):
 			self._deck.append(Card(12, ""))
 			self._deck.append(Card(0, "Safe: Cards cannot be removed from this set"))
 		for i in range(0,6):
-			self._deck.append(Card(99, "Play this card to the discard pile. Then draw a sorry card and play it"))
+			self._deck.append(Card(99, "Sorry: Play this card to the discard pile. Then draw a sorry card and play it"))
 
 	def addSorryCards(self):
 		# Brendan
@@ -153,6 +152,12 @@ class Player(object):
 		# Matt
 		# return the card the player wants to play
 		# must be legal to play
+		# you will return three objects
+		# card the player wants to play (or None),
+		# card the player wants to discard (or None),
+		# the index of the set the player wants to add the card to
+		# IF the player is "playing" the card that tells her to pick a sorry card,
+		# return it as the discard
 		pass
 
 	def getSets(self):
@@ -176,12 +181,27 @@ class CompPlayer(Player):
 	def choosePlay(self):
 		# Becky
 		# return the card the computer wants to play
-		# this_set.issafe()
+		# must be legal to play
+		# you will return three objects
+		# card the player wants to play (or None),
+		# card the player wants to discard (or None),
+		# the index of the set the player wants to add the card to
+		# IF the player is "playing" the card that tells her to pick a sorry card,
+		# return it as the discard
+		setvalues = []
 		for this_set in self.currentPlayer.getSets():
-			if this_set.getValue():
-				pass
-		self.currentPlayer.hand
-		return card
+			setvalues.append(self.currentPlayer.getValue())
+		cardvalues = []
+		for card in self.currentPlayer.hand:
+			cardvalues.append(card):
+		for i, v in enumerate(setvalues):
+			for card in self.hand
+				if v + card.getValue() == 15:
+					return i
+				elif 99 in cadvalues:
+					for j,card in enumerate(self.hand):
+						if card.getValue() == 99:
+							return i
 
 class SorryGame(object):
 	def __init__(self):
@@ -211,14 +231,14 @@ class SorryGame(object):
 			for i in range(4):
 				card = self.playingDeck.draw()
 				this_player.hand.append(card)
-		
-			
-			
+
+
+
 
 	def orderForPlay(self):
 		# Chuck
 		self._players.sort(key=Player.getAge)
-			
+
 
 	def addPlayer(self, player):
 		# Chuck
@@ -251,7 +271,7 @@ class SorryGame(object):
 		pass
 
 	def printResults(self):
-		print "Congratulations, %s ! You Won!" % self.winner.getName() # would the .getName() part be redundent since the self.winner is already set to the winner? - Alex
+		print "Congratulations, %s ! You Won!" % self.winner
 
 	def gameOver(self):
 		# Alex
@@ -270,11 +290,6 @@ class SorryGame(object):
 				self.winner = this_player
 				return True
 		return False
-		
-	
-	
-	def printPlayers(self):
-		pass
 
 	def printPlayers(self):
 		pass
