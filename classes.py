@@ -42,8 +42,12 @@ class Deck(object):
 		return self._deck.pop()
 
 	def shuffle(self):
-		pass
-	
+		for this_card in self._discard:
+			self._deck.append(this_card)
+		for i in range(7):
+			random.shuffle(self._deck)
+
+
 	def discard(self,card):
 		self._discard.append(card)
 
@@ -85,12 +89,12 @@ class Set(object):
 		self._complete = False
 
 	def addCardToSet(self, card):
-		self._set.append(card)
+		if not self.isSafe():
+			self._set.append(index)
 
 	def removeCardFromSet(self,index):
 		if not self.isSafe():
 			return self._set.pop(index)
-		return False
 
 	def isComplete(self):
 		return self._complete
@@ -128,10 +132,12 @@ class Hand(object):
 		self._hand = []
 
 	def addCardToHand(self, card):
-		pass
+		self._set.append(index)
+
+
 
 	def removeCardFromHand(self, index):
-		pass
+		return self._set.pop(index)
 
 	def count(self):
 		return len(self.hand)
