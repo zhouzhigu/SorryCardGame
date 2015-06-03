@@ -265,7 +265,6 @@ class SorryGame(object):
 		self.playingDeck.shuffle()
 		self.sorryDeck.shuffle()
 		for this_player in self._players:
-			print this_player
 			this_player._sets = []
 			for i in range(numberOfSets):
 				this_player._sets.append(Set())
