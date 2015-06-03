@@ -29,7 +29,7 @@ class Card(object):
 		card_instructions = self.getInstructions()
 		return '%s - %s' % (card_value, card_instructions)
 
-	__str__ == __repr__
+	__str__ = __repr__
 
 
 class Deck(object):
@@ -131,14 +131,14 @@ class Set(object):
 		# Return a printable version of the set
 		pass
 
-	__str__ == __repr__
+	__str__ = __repr__
 
 class Hand(object):
 	def __init__(self):
 		self._hand = []
 
 	def addCardToHand(self, card):
-		self._hand.append(index)
+		self._hand.append(card)
 
 	def removeCardFromHand(self, index):
 		return self._hand.pop(index)
@@ -150,7 +150,7 @@ class Hand(object):
 		# Return a printable version of the hand
 		pass
 
-	__str__ == __repr__
+	__str__ = __repr__
 
 
 class Player(object):
@@ -193,7 +193,7 @@ class Player(object):
 			if card.getValue() == 99:
 				discard = card
 				card = None
-			if self.setIndex.cardFits(card) = True:
+			if self.setIndex.cardFits(card) == True:
 				isReady == True
 		# I assume you want to do this after the loop breaks
 		# so I unindented one level
@@ -262,9 +262,9 @@ class CompPlayer(Player):
 			setvalues.append(self.currentPlayer.getValue())
 		cardvalues = []
 		for card in self.currentPlayer.hand:
-			cardvalues.append(card):
+			cardvalues.append(card)
 		for i, v in enumerate(setvalues):
-			for card in self.hand
+			for card in self.hand:
 				if v + card.getValue() == 15:
 					return i
 				elif 99 in cadvalues:
@@ -329,13 +329,14 @@ class SorryGame(object):
 		self.playingDeck.shuffle()
 		self.sorryDeck.shuffle()
 		for this_player in self._players:
+			print this_player
 			this_player._sets = []
 			for i in range(numberOfSets):
 				this_player._sets.append(Set())
 			this_player.hand = Hand()
 			for i in range(4):
 				card = self.playingDeck.draw()
-				this_player.hand.append(card)
+				this_player.hand.addCardToHand(card)
 
 	def orderForPlay(self):
 		self._players.sort(key=Player.getAge)
@@ -380,7 +381,7 @@ class SorryGame(object):
 		# Jordan
 		# set self.currentPlayer to the next player
 		self._players.append(self.currentPlayer)
-		self.currentPlayer = self._player.pop(0)
+		self.currentPlayer = self._players.pop(0)
 
 	def printResults(self):
 		print "Congratulations, %s ! You Won!" % self.winner
