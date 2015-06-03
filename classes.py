@@ -336,11 +336,9 @@ class SorryGame(object):
 				this_player.hand.append(card)
 
 	def orderForPlay(self):
-		# Chuck
 		self._players.sort(key=Player.getAge)
 
 	def addPlayer(self, player):
-		# Chuck
 		self._players.append(player)
 
 	def removeTwelves(self):
@@ -386,7 +384,6 @@ class SorryGame(object):
 		print "Congratulations, %s ! You Won!" % self.winner
 
 	def gameOver(self):
-		# Alex
 		for this_player in self._players:
 			num = 0
 			for this_set in this_player.getSets():
