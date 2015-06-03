@@ -199,38 +199,6 @@ class Player(object):
 		# so I unindented one level
 		return card, discard, setIndex
 
-	def drawTwo(self):
-		# draw 2 cards, if you are able, play one of them and discard the other. otherwise discard both
-		pass
-
-	def lookTakeAndPlay(self):
-		# look at another player's hand. if you are able, take one of those cards and play it
-		pass
-
-	def takeLastCard(self):
-		# if you are able, take the last card from another player's set and add it to one of yours
-		pass
-
-	def takeTopCard(self):
-		# take the top card of another player's set and discard it
-		pass
-
-	def removeLastCard(self):
-		# everyone but you must remove the last card from one of their sets
-		pass
-
-	def takeSet(self):
-		# take another player's set, that is less than 9, and put the cards in your hand
-		pass
-
-	def opponentsGiveACard(self):
-		# everyone gives you a card from their hand
-		pass
-
-	def completeSet(self):
-		# go home! any one set of yours is now complete
-		pass
-
 	def getSets(self):
 		return self._sets
 
@@ -272,38 +240,6 @@ class CompPlayer(Player):
 						if card.getValue() == 99:
 							return i
 
-	def drawTwo(self):
-		# draw 2 cards, if you are able, play one of them and discard the other. otherwise discard both
-		pass
-
-	def lookTakeAndPlay(self):
-		# look at another player's hand. if you are able, take one of those cards and play it
-		pass
-
-	def takeLastCard(self):
-		# if you are able, take the last card from another player's set and add it to one of yours
-		pass
-
-	def takeTopCard(self):
-		# take the top card of another player's set and discard it
-		pass
-
-	def removeLastCard(self):
-		# everyone but you must remove the last card from one of their sets
-		pass
-
-	def takeSet(self):
-		# take another player's set, that is less than 9, and put the cards in your hand
-		pass
-
-	def opponentsGiveACard(self):
-		# everyone gives you a card from their hand
-		pass
-
-	def completeSet(self):
-		# go home! any one set of yours is now complete
-		pass
-
 
 class SorryGame(object):
 	def __init__(self):
@@ -344,6 +280,34 @@ class SorryGame(object):
 	def addPlayer(self, player):
 		self._players.append(player)
 
+	def drawTwo(self):
+		# draw 2 cards, if you are able, play one of them and discard the other. otherwise discard both
+		pass
+
+	def lookTakeAndPlay(self):
+		# look at another player's hand. if you are able, take one of those cards and play it
+		pass
+
+	def takeLastCard(self):
+		# if you are able, take the last card from another player's set and add it to one of yours
+		pass
+
+	def takeTopCard(self):
+		# take the top card of another player's set and discard it
+		pass
+
+	def removeLastCard(self):
+		# everyone but you must remove the last card from one of their sets
+		pass
+
+	def takeSet(self):
+		# take another player's set, that is less than 9, and put the cards in your hand
+		pass
+
+	def opponentsGiveACard(self):
+		# everyone gives you a card from their hand
+		pass
+
 	def removeTwelves(self):
 		for this_player in self._players:
 			if this_player != self.currentPlayer:
@@ -355,6 +319,10 @@ class SorryGame(object):
 						if thiscardvalue == 12:
 							this_set.removeCardFromSet(i)
 							self.playingDeck.discard(i)
+
+	def completeSet(self):
+		# go home! any one set of yours is now complete
+		pass
 
 	def playSorryCard(self):
 		cardValue = card.getValue()
