@@ -42,7 +42,6 @@ def getNumberOfPlayers():
 			noNumber = True
 	return number
 
-
 # Brendan
 def getPlayerAge():
 	age, noAge = 0, True
