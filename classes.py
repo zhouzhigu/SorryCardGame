@@ -6,6 +6,7 @@ computerPlayerNames = [
 "Marcus","Karen","Maya","Ed","Sharkie","Diane","Andy","Leon","Mary"
 ]
 
+
 class Card(object):
 	def __init__(self,value,instructions):
 		self.setValue(value)
@@ -28,6 +29,7 @@ class Card(object):
 		card_instructions = self.getInstructions()
 		return '%s - %s' % (card_value, card_instructions)
 
+
 class Deck(object):
 	def __init__(self,sorry=False):
 		self._deck = []
@@ -46,7 +48,6 @@ class Deck(object):
 			self._deck.append(this_card)
 		for i in range(7):
 			random.shuffle(self._deck)
-
 
 	def discard(self,card):
 		self._discard.append(card)
@@ -82,6 +83,7 @@ class Deck(object):
 		self._deck.append(Card(8, "Everyone gives you a card from their hand"))
 		self._deck.append(Card(9, "Discard all 12's from all sets but yours"))
 		self._deck.append(Card(10, "Go Home! Any one set of yours is now complete."))
+
 
 class Set(object):
 	def __init__(self):
@@ -127,6 +129,7 @@ class Set(object):
 			intset.append(this_card.getValue())
 		return sum(intset)
 
+
 class Hand(object):
 	def __init__(self):
 		self._hand = []
@@ -142,6 +145,7 @@ class Hand(object):
 
 	def __str__(self):
 		return "%s" % self._hand
+
 
 class Player(object):
 	def __init__(self, name, age):
@@ -234,6 +238,7 @@ class Player(object):
 	def __str__(self):
 		return "%s" % self.getName()
 
+
 class CompPlayer(Player):
 	def __init__(self):
 		random.shuffle(computerPlayerNames)
@@ -300,6 +305,7 @@ class CompPlayer(Player):
 	def completeSet(self):
 		# go home! any one set of yours is now complete
 		pass
+
 
 class SorryGame(object):
 	def __init__(self):
