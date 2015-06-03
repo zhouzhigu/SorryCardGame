@@ -24,10 +24,12 @@ class Card(object):
 	def setInstructions(self, instructions):
 		self._instructions = instructions
 
-	def __str__(self):
+	def __repr__(self):
 		card_value = self.getValue()
 		card_instructions = self.getInstructions()
 		return '%s - %s' % (card_value, card_instructions)
+
+	__str__ == __repr__
 
 
 class Deck(object):
@@ -125,6 +127,11 @@ class Set(object):
 			intset.append(this_card.getValue())
 		return sum(intset)
 
+	def __repr__(self):
+		# Return a printable version of the set
+		pass
+
+	__str__ == __repr__
 
 class Hand(object):
 	def __init__(self):
@@ -139,8 +146,11 @@ class Hand(object):
 	def count(self):
 		return len(self._hand)
 
-	def __str__(self):
-		return "%s" % self._hand
+	def __repr__(self):
+		# Return a printable version of the hand
+		pass
+
+	__str__ == __repr__
 
 
 class Player(object):
