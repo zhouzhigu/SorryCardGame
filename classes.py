@@ -226,11 +226,11 @@ class CompPlayer(Player):
 		# IF the player is "playing" the card that tells her to pick a sorry card,
 		# return it as the discard
 		setvalues = []
-		for this_set in self.currentPlayer.getSets():
-			setvalues.append(self.currentPlayer.getValue())
+		for this_set in self.getSets():
+			setvalues.append(this_set.getValue())
 		cardvalues = []
-		for card in self.currentPlayer.hand:
-			cardvalues.append(card)
+		for card in self.hand:
+			cardvalues.append(card.getValue())
 		for i, v in enumerate(setvalues):
 			for card in self.hand:
 				if v + card.getValue() == 15:
