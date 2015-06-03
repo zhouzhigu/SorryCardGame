@@ -111,14 +111,10 @@ class Set(object):
 		return len(self._set)==0
 
 	def cardFits(self, card):
-		if self.getValue() + card.getValue() < 16:
-			return True
-		return False
+		return self.getValue() + card.getValue() < 16 or False
 
 	def cardWins(self, card):
-		if self.getValue() + card.getValue() == 15:
-			return True
-		return False
+		return self.getValue() + card.getValue() == 15 or False
 
 	def count(self):
 		return len(self._set)
