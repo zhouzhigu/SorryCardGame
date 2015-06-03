@@ -217,10 +217,6 @@ class Player(object):
 		# everyone gives you a card from their hand
 		pass
 
-	def removeTwelves(self):
-		# discard all 12's from all sets but yours
-		pass
-
 	def completeSet(self):
 		# go home! any one set of yours is now complete
 		pass
@@ -292,10 +288,6 @@ class CompPlayer(Player):
 
 	def opponentsGiveACard(self):
 		# everyone gives you a card from their hand
-		pass
-
-	def removeTwelves(self):
-		# discard all 12's from all sets but yours
 		pass
 
 	def completeSet(self):
@@ -370,7 +362,7 @@ class SorryGame(object):
 		elif cardValue == 7:
 			self.currentPlayer.opponentsGiveACard()
 		elif cardValue == 8:
-			self.currentPlayer.removeTwelves()
+			self.removeTwelves()
 		elif cardValue == 9:
 			self.currentPlayer.completeSet()
 
