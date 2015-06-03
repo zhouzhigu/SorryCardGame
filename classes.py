@@ -380,8 +380,9 @@ class SorryGame(object):
 	def nextPlayer(self):
 		# Jordan
 		# set self.currentPlayer to the next player
-		self._players.append(self.currentPlayer)
-		self.currentPlayer = self._players.pop(0)
+		pass
+		#self._players.append(self.currentPlayer)
+		#self.currentPlayer = self._players.pop(0)
 
 	def printResults(self):
 		print "Congratulations, %s ! You Won!" % self.winner
