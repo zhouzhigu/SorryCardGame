@@ -113,7 +113,12 @@ class Set(object):
 		for this_card in self._set:
 			intset.append(this_card.getValue())
 		return sum(intset)
+		
+	def getSet(self):
+		return self._set
 
+	def __repr__(self):
+		return "Your cards in your set is%s" % (getSet)
 class Hand(object):
 	def __init__(self):
 		self._hand = []
@@ -129,6 +134,14 @@ class Hand(object):
 
 	def __str__(self):
 		return "%s" % self._hand
+	
+	def getHand(self):
+			return self._hand
+	
+	def __repr__(self):
+		return "Your cards in your hand is%s" % (getHand)
+	
+
 
 class Player(object):
 	def __init__(self, name, age):
