@@ -131,13 +131,13 @@ class Hand(object):
 		self._hand = []
 
 	def addCardToHand(self, card):
-		self._set.append(index)
+		self._hand.append(index)
 
 	def removeCardFromHand(self, index):
-		return self._set.pop(index)
+		return self._hand.pop(index)
 
 	def count(self):
-		return len(self.hand)
+		return len(self._hand)
 
 	def __str__(self):
 		return "%s" % self._hand
