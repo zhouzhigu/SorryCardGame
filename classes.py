@@ -182,6 +182,42 @@ class Player(object):
 		# so I unindented one level
 		return card, discard, setIndex
 
+	def drawTwo(self):
+		# draw 2 cards, if you are able, play one of them and discard the other. otherwise discard both
+		pass
+
+	def lookTakeAndPlay(self):
+		# look at another player's hand. if you are able, take one of those cards and play it
+		pass
+
+	def takeLastCard(self):
+		# if you are able, take the last card from another player's set and add it to one of yours
+		pass
+
+	def takeTopCard(self):
+		# take the top card of another player's set and discard it
+		pass
+
+	def removeLastCard(self):
+		# everyone but you must remove the last card from one of their sets
+		pass
+
+	def takeSet(self):
+		# take another player's set, that is less than 9, and put the cards in your hand
+		pass
+
+	def opponentsGiveACard(self):
+		# everyone gives you a card from their hand
+		pass
+
+	def removeTwelves(self):
+		# discard all 12's from all sets but yours
+		pass
+
+	def completeSet(self):
+		# go home! any one set of yours is now complete
+		pass
+
 	def getSets(self):
 		return self._sets
 
@@ -221,6 +257,42 @@ class CompPlayer(Player):
 					for j,card in enumerate(self.hand):
 						if card.getValue() == 99:
 							return i
+
+	def drawTwo(self):
+		# draw 2 cards, if you are able, play one of them and discard the other. otherwise discard both
+		pass
+
+	def lookTakeAndPlay(self):
+		# look at another player's hand. if you are able, take one of those cards and play it
+		pass
+
+	def takeLastCard(self):
+		# if you are able, take the last card from another player's set and add it to one of yours
+		pass
+
+	def takeTopCard(self):
+		# take the top card of another player's set and discard it
+		pass
+
+	def removeLastCard(self):
+		# everyone but you must remove the last card from one of their sets
+		pass
+
+	def takeSet(self):
+		# take another player's set, that is less than 9, and put the cards in your hand
+		pass
+
+	def opponentsGiveACard(self):
+		# everyone gives you a card from their hand
+		pass
+
+	def removeTwelves(self):
+		# discard all 12's from all sets but yours
+		pass
+
+	def completeSet(self):
+		# go home! any one set of yours is now complete
+		pass
 
 class SorryGame(object):
 	def __init__(self):
@@ -283,23 +355,23 @@ class SorryGame(object):
 	def playSorryCard(self):
 		cardValue = card.getValue()
 		if cardValue == 1:
-			self.drawTwo()
+			self.currentPlayer.drawTwo()
 		elif cardValue == 2:
-			self.lookTakeAndPlay()
+			self.currentPlayer.lookTakeAndPlay()
 		elif cardValue == 3:
-			self.takeLastCard()
+			self.currentPlayer.takeLastCard()
 		elif cardValue == 4:
-			self.takeTopCard()
+			self.currentPlayer.takeTopCard()
 		elif cardValue == 5:
-			self.removeLastCard()
+			self.currentPlayer.removeLastCard()
 		elif cardValue == 6:
-			self.takeSet()
+			self.currentPlayer.takeSet()
 		elif cardValue == 7:
-			self.opponentsGiveACard()
+			self.currentPlayer.opponentsGiveACard()
 		elif cardValue == 8:
-			self.removeTwelves()
+			self.currentPlayer.removeTwelves()
 		elif cardValue == 9:
-			self.completeSet()
+			self.currentPlayer.completeSet()
 
 	def nextPlayer(self):
 		# Jordan
@@ -345,21 +417,7 @@ class SorryGame(object):
 			if cardValue == 99:
 				self.playingDeck.discard(card)
 				self.playSorryCard()
-			if cardValue in [-1, 0, 1, 2, 4, 5, 8, 10, 12]:
+			else:
 				theSets[setIndex].addCardToSet(card)
-			if cardValue == 3:
-				theSets[setIndex].addCardToSet(card)
-				self.currentPlayer.Hand.addCardToHand(self.stealCardFromHand(card))
-			if cardValue == 7:
-				theSets[setIndex].addCardToSet(card)
-				self.playingDeck.discard(self.stealCardFromSet(card))
-			if cardValue == 11:
-				theSets[setIndex].addCardToSet(card)
-				self.tradeHands(self.currentPlayer)
-			elif discardValue == 11:
-				self.playingDeck.discard(card)
-				# same logic as the if statement above,
-				# just changes if its being discarded instead of being played
-				self.tradeHands(self.currentPlayer)
 		if cardValue != 2:
 			self.nextPlayer()
