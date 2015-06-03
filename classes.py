@@ -74,15 +74,15 @@ class Deck(object):
 
 	def addSorryCards(self):
 		for i in range(2):
-			self._deck.append(Card(2, "Draw 2 cards. If you are able, play one of them and discard the other. Otherwise discard both"))
-			self._deck.append(Card(3, "Look at another player's hand. If you are able, take one of those cards and play it."))
-			self._deck.append(Card(4, "If you are able, take the last card from another player's set and add it to one of yours"))
-		self._deck.append(Card(5, "Take the top card of another player's set and discard it"))
-		self._deck.append(Card(6, "Everyone but you must remove the last acrd from one of their sets."))
-		self._deck.append(Card(7, "Take another player's set that is less than 9, and put the cards in your hand."))
-		self._deck.append(Card(8, "Everyone gives you a card from their hand"))
-		self._deck.append(Card(9, "Discard all 12's from all sets but yours"))
-		self._deck.append(Card(10, "Go Home! Any one set of yours is now complete."))
+			self._deck.append(Card(1, "Draw 2 cards. If you are able, play one of them and discard the other. Otherwise discard both"))
+			self._deck.append(Card(2, "Look at another player's hand. If you are able, take one of those cards and play it."))
+			self._deck.append(Card(3, "If you are able, take the last card from another player's set and add it to one of yours"))
+		self._deck.append(Card(4, "Take the top card of another player's set and discard it"))
+		self._deck.append(Card(5, "Everyone but you must remove the last acrd from one of their sets."))
+		self._deck.append(Card(6, "Take another player's set that is less than 9, and put the cards in your hand."))
+		self._deck.append(Card(7, "Everyone gives you a card from their hand"))
+		self._deck.append(Card(8, "Discard all 12's from all sets but yours"))
+		self._deck.append(Card(9, "Go Home! Any one set of yours is now complete."))
 
 
 class Set(object):
