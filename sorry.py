@@ -1,10 +1,8 @@
 from classes import *
 
-# Brendan
 def printIntroduction():
 	print "Welcome to the Sorry Card Game"
 
-# Brendan
 def printInstructions():
 	# print instructions
 	print """
@@ -14,7 +12,6 @@ depending on the number of players. (4 players max)
 Now, shuffle the playing cards and give four to each person playing
 Then, shuffle the sorry cards and playing cards, and put them into two seperate piles.
 Once that is done, you are ready to start the game. Youngest player goes first."""
-
 
 	raw_input("press Enter")
 
@@ -27,8 +24,6 @@ Then you may proceed to play a card. If the card has a number on it, you may put
 of your Start card. Your Start card must reach 15 before you can flip it. It cannot be over 15,
 it must be 15. """
 
-
-# Brendan
 def getNumberOfPlayers():
 	number, noNumber = 0, True
 	while noNumber:
@@ -42,8 +37,6 @@ def getNumberOfPlayers():
 			noNumber = True
 	return number
 
-
-# Brendan
 def getPlayerAge():
 	age, noAge = 0, True
 	while noAge:
@@ -68,7 +61,6 @@ age = getPlayerAge()
 sorryGame.addPlayer(Player(name,age))
 sorryGame.orderForPlay()
 sorryGame.deal()
-sorryGame.nextPlayer()
 """
 while not sorryGame.gameOver():
 	sorryGame.move()
@@ -82,4 +74,3 @@ def demo():
     card = sorryGame.playingDeck.draw()
     print card.getValue()
     print card.getInstructions()
-
