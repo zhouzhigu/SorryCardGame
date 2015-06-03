@@ -353,12 +353,6 @@ class SorryGame(object):
 							this_set.removeCardFromSet(i)
 							self.playingDeck.discard(i)
 
-	def playPlayingCard(self, card):
-		# play the card
-		# if it's a two, return True
-		# if not, return False
-		pass
-
 	def playSorryCard(self):
 		cardValue = card.getValue()
 		if cardValue == 1:
