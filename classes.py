@@ -134,8 +134,6 @@ class Hand(object):
 	def addCardToHand(self, card):
 		self._set.append(index)
 
-
-
 	def removeCardFromHand(self, index):
 		return self._set.pop(index)
 
@@ -172,7 +170,6 @@ class Player(object):
 		# the index of the set the player wants to add the card to
 		# IF the player is "playing" the card that tells her to pick a sorry card,
 		# return it as the discard
-		pass
 		isReady == False
 		while isReady == False:
 			print self.currentPlayer.hand
