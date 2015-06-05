@@ -138,6 +138,7 @@ class Set(object):
 class Hand(object):
 	def __init__(self):
 		self._hand = []
+	
 
 	def addCardToHand(self, card):
 		self._hand.append(card)
@@ -149,9 +150,10 @@ class Hand(object):
 		return len(self._hand)
 
 	def __repr__(self):
-		# Return a printable version of the hand
-		pass
-
+		output = ""
+		for card in self._hand:
+			output = output + str(card)
+            output = output + "\n"
 	__str__ = __repr__
 
 
